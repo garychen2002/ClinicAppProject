@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ClinicAppProject</string>
+
+    <string name="my_profile">My Profile</string>
+
+    <string name="book_appointment">Book Appointment</string>
+    <string name="my_appointment">My Appointment</string>
+
+    <string name="message">Welcome</string>
+
+
 </resources>
