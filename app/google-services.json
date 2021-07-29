@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "329565294686",
+    "project_id": "clinic-app-project",
+    "storage_bucket": "clinic-app-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329565294686:android:f1da5200b85267cc2624cf",
+        "android_client_info": {
+          "package_name": "com.example.clinicappproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329565294686-9lmt0cfuebu19l465srdmi7riucpodab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLYTrg0Lklygy6Ohnt7yMlch2YXXjq2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329565294686-9lmt0cfuebu19l465srdmi7riucpodab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

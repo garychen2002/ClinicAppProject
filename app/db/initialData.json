@@ -1,0 +1,34 @@
+{
+	"doctors" : [
+	{
+		"id": 1,
+		"name": "test",
+		"username": "test1",
+		"password": "password1"
+		
+	},
+
+	{
+		"id": 2,
+		"name": "test2",
+		"username": "test2",
+		"password": "password2"
+	}
+	],
+
+	"patients" : [
+	{
+		"id": 1,
+		"name": "test",
+		"username": "test1",
+		"password": "password1"
+	},
+
+	{
+		"id": 2,
+		"name": "test2",
+		"username": "test2",
+		"password": "password2"
+	}
+	]
+}
