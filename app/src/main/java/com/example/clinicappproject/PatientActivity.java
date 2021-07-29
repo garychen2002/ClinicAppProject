@@ -12,6 +12,8 @@ public class PatientActivity extends AppCompatActivity {
 
 
     private Button button1;
+    private Button button2;
+    //private Button button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +28,28 @@ public class PatientActivity extends AppCompatActivity {
             }
         });
 
-    };
 
+        button2 = (Button) findViewById(R.id.profile);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMyProfile();
+            }
+        });
+
+
+
+    };
 
     public void openBookAppointment(){
         Intent intent = new Intent(this, BookAppointmentActivity.class);
         startActivity(intent);
     }
+
+    public void openMyProfile(){
+        Intent intent = new Intent(this, MyProfileActivity.class);
+        startActivity(intent);
+    }
+
+
 }
