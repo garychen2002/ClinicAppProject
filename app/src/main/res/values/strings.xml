@@ -7,6 +7,9 @@
     <string name="my_appointment">My Appointment</string>
 
     <string name="message">Welcome</string>
+    <string name="d_info">Doctor\'s info</string>
+    <string name="d_appointment">My appointment</string>
+    <string name="d_name">Doctor\'s name</string>
 
 
 </resources>
