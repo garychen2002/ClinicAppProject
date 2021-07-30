@@ -16,7 +16,7 @@ public class DoctorActivity extends AppCompatActivity {
 
     public void openViewAppointment(){
 //        Intent intent = new Intent(this, DisplayAppointmentActivity.class);
-        startActivity(intent);
+//        startActivity(intent);
     }
 
 }
