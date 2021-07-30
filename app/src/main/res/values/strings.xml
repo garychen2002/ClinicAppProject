@@ -7,6 +7,21 @@
     <string name="my_appointment">My Appointment</string>
 
     <string name="message">Welcome</string>
+    <string-array name="departments">
+        <item>Cardiology</item>
+        <item>Gynecology</item>
+        <item>Ophthalmology</item>
+        <item>Gastroenterology</item>
+        <item>Ear, nose and throat</item>
+    </string-array>
+
+    <string-array name="doctor_gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Unspecified</item>
+    </string-array>
+
+
 
 
 </resources>

@@ -2,8 +2,8 @@ package com.example.clinicappproject;
 
 public class Patient {
 
-    String name;
-    String gender;
+    private String name;
+    private String gender;
 
 
     public Patient(){
