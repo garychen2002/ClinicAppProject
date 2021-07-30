@@ -10,6 +10,21 @@
     <string name="d_info">Doctor\'s info</string>
     <string name="d_appointment">My appointment</string>
     <string name="d_name">Doctor\'s name</string>
+    <string-array name="departments">
+        <item>Cardiology</item>
+        <item>Gynecology</item>
+        <item>Ophthalmology</item>
+        <item>Gastroenterology</item>
+        <item>Ear, nose and throat</item>
+    </string-array>
+
+    <string-array name="doctor_gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Unspecified</item>
+    </string-array>
+
+
 
 
 </resources>
