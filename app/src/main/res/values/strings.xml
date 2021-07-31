@@ -10,6 +10,8 @@
     <string name="d_info">Doctor\'s info</string>
     <string name="d_appointment">My appointment</string>
     <string name="d_name">Doctor\'s name</string>
+
+    <string name="find_doctor">Find Available Doctor</string>
     <string-array name="departments">
         <item>Cardiology</item>
         <item>Gynecology</item>
@@ -23,6 +25,24 @@
         <item>Female</item>
         <item>Unspecified</item>
     </string-array>
+
+    <string-array name="time_picker">
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+
+    </string-array>
+
 
 
 
