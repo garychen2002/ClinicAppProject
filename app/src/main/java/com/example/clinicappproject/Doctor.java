@@ -1,5 +1,6 @@
 package com.example.clinicappproject;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class Doctor extends User{
@@ -30,7 +31,7 @@ public class Doctor extends User{
         visted_patients.add(p);
     }
 
-    public List<Doctor> PastDoctor(Patient p){
+    public LinkedHashSet<Doctor> PastDoctor(Patient p){
         return p.postDoctor();
     }
 

@@ -1,13 +1,20 @@
 package com.example.clinicappproject;
 
 
-import java.util.Date;
+
+import java.util.GregorianCalendar;
 
 public class Appointment {
 
-    //Doctor doctor;
+    private Doctor doctor;
     private Patient patient;
-    private Date time;
+    private GregorianCalendar start;
+    //private Date end;
+
+    public Appointment(){
+
+    }
+
 
     
 
