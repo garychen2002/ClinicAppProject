@@ -2,18 +2,25 @@ package com.example.clinicappproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
+
+
+import java.util.GregorianCalendar;
+
+
+
+
 public class BookAppointmentActivity extends AppCompatActivity {
 
-    DatePicker picker;
+    GregorianCalendar date;
     String gender;
     String spec;
-    String time;
     Button find_doctor;
 
     @Override
@@ -22,6 +29,13 @@ public class BookAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_appointment);
 
         find_doctor = (Button)findViewById(R.id.find_doctor);
+        find_doctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //gather_info();
+
+            }
+        });
 
     }
 
@@ -34,13 +48,21 @@ public class BookAppointmentActivity extends AppCompatActivity {
         gender= String.valueOf(sp2.getSelectedItem());
 
         Spinner sp3 = (Spinner)findViewById(R.id.timePicker);
-        time = String.valueOf(sp3.getSelectedItem());
+        String time = String.valueOf(sp3.getSelectedItem());
+        String [] parts = time.split(":");
 
-
+        DatePicker dp = (DatePicker)findViewById(R.id.datePicker);
+        date= new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
+                Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 
     }
 
-   // time= getString(R.id)
+    public void openChooseDDoctor(){
+        Intent intent = new Intent(this, ChooseDoctor.class);
+        startActivity(intent);
+    }
+
+
 
 
 }

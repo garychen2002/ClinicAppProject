@@ -12,6 +12,10 @@
     <string name="d_name">Doctor\'s name</string>
 
     <string name="find_doctor">Find Available Doctor</string>
+
+    <string name="choose_doctor">Available Doctors</string>
+    <string name="book_button">Book</string>
+
     <string-array name="departments">
         <item>Cardiology</item>
         <item>Gynecology</item>
@@ -42,9 +46,6 @@
         <item>16:00</item>
 
     </string-array>
-
-
-
 
 
 </resources>
