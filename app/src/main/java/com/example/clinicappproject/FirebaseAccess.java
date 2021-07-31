@@ -51,5 +51,23 @@ public class FirebaseAccess {
         return patient;
     }
 
+    static public void addAppointment(Appointment appointment)
+    {
 
+    }
+
+    static public void addDoctor(Doctor doctor)
+    {
+
+    }
+
+    static public void addPatient(Patient patient)
+    {
+
+    }
+
+    static public void filter(String gender, String specialization)
+    {
+
+    }
 }

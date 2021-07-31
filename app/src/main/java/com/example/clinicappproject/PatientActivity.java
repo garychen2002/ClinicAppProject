@@ -37,7 +37,9 @@ public class PatientActivity extends AppCompatActivity {
             }
         });
 
-
+        Patient est = FirebaseAccess.patientLogin("test1", "test1");
+        Patient est2 = FirebaseAccess.patientLogin("test1", "test2");
+        Patient est3 = FirebaseAccess.patientLogin("test2", "test1");
 
     };
 
