@@ -11,6 +11,12 @@
         android:theme="@style/Theme.ClinicAppProject">
         <activity android:name=".ChooseDoctor"></activity>
         <activity android:name=".MyProfileActivity" />
+        <activity android:name=".DoctorActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".DisplayAppointmentActivity"
+            android:parentActivityName=".DoctorActivity">
+        </activity>
         <activity android:name=".BookAppointmentActivity" />
         <activity android:name=".PatientActivity">
             <intent-filter>
