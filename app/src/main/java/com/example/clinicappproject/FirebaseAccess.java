@@ -30,9 +30,18 @@ public class FirebaseAccess {
                     for (DataSnapshot user: snapshot.getChildren()) {
                         if (user.child("password").equals(password))
                         {
+                            Log.i("info", "success");
                             // not sure how to get out of here
                         }
+                        else
+                        {
+                            Log.i("info", "invalid password");
+                        }
                     }
+                }
+                else
+                {
+                    Log.i("info", "invalid user");
                 }
             }
 
