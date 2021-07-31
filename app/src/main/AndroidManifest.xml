@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
-        <activity android:name=".MyProfileActivity"></activity>
+        <activity android:name=".DisplayAppointmentActivity"
+            android:parentActivityName=".DoctorActivity" >
+        </activity>
+        <activity android:name=".DoctorActivity" />
+        <activity android:name=".MyProfileActivity" />
         <activity android:name=".BookAppointmentActivity" />
         <activity android:name=".PatientActivity">
             <intent-filter>
