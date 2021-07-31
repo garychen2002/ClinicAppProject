@@ -13,11 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        FirebaseAccess database = new FirebaseAccess(ref);
-        Patient est = database.patientLogin("test1", "test1");
-        Patient est2 = database.patientLogin("test1", "test2");
-        Patient est3 = database.patientLogin("test2", "test1");
+        Patient est = FirebaseAccess.patientLogin("test1", "test1");
+        Patient est2 = FirebaseAccess.patientLogin("test1", "test2");
+        Patient est3 = FirebaseAccess.patientLogin("test2", "test1");
     }
 
 

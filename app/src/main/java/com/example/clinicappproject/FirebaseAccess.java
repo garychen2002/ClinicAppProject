@@ -7,19 +7,16 @@ import androidx.annotation.NonNull;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseAccess {
 
-    private DatabaseReference ref;
-    public FirebaseAccess(DatabaseReference ref)
-    {
-        this.ref = ref;
-    }
 
-    public Patient patientLogin(String username, String password)
+    static public Patient patientLogin(String username, String password)
     {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Patient patient = null;
         Query userQuery = ref.child("patients").orderByChild("username").equalTo(username);
         userQuery.addValueEventListener(new ValueEventListener() {
