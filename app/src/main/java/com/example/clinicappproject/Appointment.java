@@ -5,9 +5,15 @@ import java.util.Date;
 
 public class Appointment {
 
-    //Doctor doctor;
+    private Doctor doctor;
     private Patient patient;
-    private Date time;
+    private Date start;
+    private Date end;
+
+    public Appointment(){
+
+    }
+
 
     
 
