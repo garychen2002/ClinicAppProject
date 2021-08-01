@@ -2,7 +2,7 @@ package com.example.clinicappproject;
 
 import java.util.LinkedHashSet;
 
-public class Patient {
+public class Patient i{
 
     private String name;
     private String gender;

@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class LoginTest extends AppCompatActivity implements Callback {
 
+    private View myView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +20,9 @@ public class LoginTest extends AppCompatActivity implements Callback {
     }
 
     public void loginButton(View view){
-        Toast errorToast = Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT);
-        errorToast.show();
+        myView = view;
+//        Toast errorToast = Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG);
+//        errorToast.show();
         EditText usernameText = (EditText) findViewById(R.id.editTextTextUsername);
         EditText passwordText = (EditText) findViewById(R.id.editTextTextPassword);
         String username = usernameText.getText().toString();
@@ -35,11 +39,12 @@ public class LoginTest extends AppCompatActivity implements Callback {
     public void patientLogin(Patient patient) {
         if (patient == null)
         {
-            Toast errorToast = Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT);
-            errorToast.show();
+            Snackbar ackbar = Snackbar.make(myView, "wrong credentials", Snackbar.LENGTH_SHORT);
+            ackbar.show();
         }
         else {
             Intent intent = new Intent(this, PatientActivity.class);
+            intent.putex
             startActivity(intent);
         }
     }
