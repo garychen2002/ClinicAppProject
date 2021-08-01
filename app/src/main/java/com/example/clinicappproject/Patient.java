@@ -3,18 +3,17 @@ package com.example.clinicappproject;
 import java.io.Serializable;
 import java.util.LinkedHashSet;
 
-public class Patient implements Serializable {
+public class Patient  extends User implements Serializable{
 
-    private String name;
-    private String gender;
+
     private LinkedHashSet<Doctor> prev_doctors;
 
     public Patient(){
     }
 
-    public Patient(String name, String gender){
-        this.name=name;
-        this.gender=gender;
+    public Patient(String u, String p, String n, String g){
+        super(u,p,n,g);
+
         prev_doctors=new LinkedHashSet<Doctor>();
 
     }
@@ -33,7 +32,26 @@ public class Patient implements Serializable {
         return p.name.equals(this.name) && p.gender.equals(this.gender);
     }
 
+    @Override
+    public String toString(){
+        return name + " " + gender;
+    }
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
 }

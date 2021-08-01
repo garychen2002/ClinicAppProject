@@ -24,8 +24,24 @@ public class Doctor extends User implements Serializable {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public String getGender() {
         return this.gender;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public void addPatient(Patient p){
