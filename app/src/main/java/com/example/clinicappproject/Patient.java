@@ -1,8 +1,9 @@
 package com.example.clinicappproject;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 
-public class Patient i{
+public class Patient implements Serializable {
 
     private String name;
     private String gender;

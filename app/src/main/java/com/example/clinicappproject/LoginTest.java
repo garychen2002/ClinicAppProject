@@ -44,7 +44,7 @@ public class LoginTest extends AppCompatActivity implements Callback {
         }
         else {
             Intent intent = new Intent(this, PatientActivity.class);
-            intent.putex
+            intent.putExtra("com.example.clinicappproject.CurrentPatient", patient);
             startActivity(intent);
         }
     }
