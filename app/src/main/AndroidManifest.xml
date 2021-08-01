@@ -11,7 +11,13 @@
         android:theme="@style/Theme.ClinicAppProject">
         <activity
             android:name=".LoginTest"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
         <activity android:name=".ChooseDoctor" />
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".DoctorActivity"
