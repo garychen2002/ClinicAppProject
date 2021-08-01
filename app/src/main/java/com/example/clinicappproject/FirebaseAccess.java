@@ -1,5 +1,6 @@
 package com.example.clinicappproject;
 
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 public class FirebaseAccess {
 
 
-    static public Patient patientLogin(String username, String password)
+    static public Patient patientLogin(String username, String password, Callback callback)
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Patient patient = null;
@@ -24,21 +25,28 @@ public class FirebaseAccess {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
+                    Log.i("info", "SNAPSHOT EXISTS");
                     for (DataSnapshot user: snapshot.getChildren()) {
-                        if (user.child("password").equals(password))
+                        String compare = user.child("password").getValue().toString();
+                        Log.i("info", compare);
+                        if (compare.equals(password))
                         {
                             Log.i("info", "success");
+                            Patient patient = user.getValue(Patient.class);
+                            callback.patientLogin(patient);
                             // not sure how to get out of here
                         }
                         else
                         {
-                            Log.i("info", "invalid password");
+                            callback.patientLogin(null);
+//                            Log.i("info", "invalid password");
                         }
                     }
                 }
                 else
                 {
-                    Log.i("info", "invalid user");
+                    callback.patientLogin(null);
+//                    Log.i("info", "invalid user");
                 }
             }
 

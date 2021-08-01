@@ -36,10 +36,10 @@ public class PatientActivity extends AppCompatActivity {
                 openMyProfile();
             }
         });
-
-        Patient est = FirebaseAccess.patientLogin("test1", "test1");
-        Patient est2 = FirebaseAccess.patientLogin("test1", "test2");
-        Patient est3 = FirebaseAccess.patientLogin("test2", "test1");
+        PatientCallback callback = new PatientCallback();
+        Patient est = FirebaseAccess.patientLogin("test1", "password1", callback);
+        Patient est2 = FirebaseAccess.patientLogin("test2", "password2", callback);
+        Patient est3 = FirebaseAccess.patientLogin("test2", "test1", callback);
 
     };
 

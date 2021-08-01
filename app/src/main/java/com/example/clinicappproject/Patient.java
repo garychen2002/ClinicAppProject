@@ -32,6 +32,7 @@ public class Patient {
         return p.name.equals(this.name) && p.gender.equals(this.gender);
     }
 
-
-
+    public String getName() {
+        return name;
+    }
 }
