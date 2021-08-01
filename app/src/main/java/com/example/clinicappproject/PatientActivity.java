@@ -21,7 +21,7 @@ public class PatientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         currentPatient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
-        Log.i("info", currentPatient.getName());
+        Log.i("info", currentPatient.toString());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 

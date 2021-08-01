@@ -10,22 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
         <activity
-            android:name=".LoginTest"
-            android:exported="true" >
+            android:name=".LoginChooseTestActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+        </activity>
+        <activity
+            android:name=".PatientLoginTest"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ChooseDoctor" />
         <activity android:name=".MyProfileActivity" />
-        <activity android:name=".DoctorActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".DisplayAppointmentActivity"
-            android:parentActivityName=".DoctorActivity">
-        </activity>
+        <activity
+            android:name=".DoctorActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".DisplayAppointmentActivity"
+            android:parentActivityName=".DoctorActivity"></activity>
         <activity android:name=".BookAppointmentActivity" />
         <activity android:name=".PatientActivity">
             <intent-filter>

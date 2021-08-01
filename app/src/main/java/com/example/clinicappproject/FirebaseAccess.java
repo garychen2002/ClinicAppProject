@@ -27,6 +27,7 @@ public class FirebaseAccess {
                 {
                     Log.i("info", "SNAPSHOT EXISTS");
                     for (DataSnapshot user: snapshot.getChildren()) {
+                        Log.i("info", user.getKey());
                         String compare = user.child("password").getValue().toString();
                         Log.i("info", compare);
                         if (compare.equals(password))
