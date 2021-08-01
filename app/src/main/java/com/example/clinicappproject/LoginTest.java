@@ -10,6 +10,9 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginTest extends AppCompatActivity implements Callback {
 
     private View myView;
@@ -17,6 +20,9 @@ public class LoginTest extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_test);
+
+//        Doctor a = new Doctor("username1", "password1", "est", "Male", "Brains", new ArrayList<Patient>(), new ArrayList<Appointment>());
+//        FirebaseAccess.addDoctor(a);
     }
 
     public void loginButton(View view){

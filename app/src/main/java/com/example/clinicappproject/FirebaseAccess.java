@@ -61,17 +61,22 @@ public class FirebaseAccess {
 
     static public void addAppointment(Appointment appointment)
     {
-
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("appointments").push().setValue(appointment);
     }
 
     static public void addDoctor(Doctor doctor)
     {
-
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference x = ref.child("patients").push();
+        x.child("name").setValue(doctor.getName());
     }
 
     static public void addPatient(Patient patient)
     {
-
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference x = ref.child("patients").push();
+        x.child("name").setValue(patient.getName());
     }
 
     static public void filter(String gender, String specialization)
