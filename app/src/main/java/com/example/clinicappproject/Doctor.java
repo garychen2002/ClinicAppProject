@@ -5,35 +5,16 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 public class Doctor extends User implements Serializable {
-    private String username;
-    private String passwork;
-    private String name;
-    private String gender;
+
     private String specialization;
-    private List<Patient> visted_patients;
+    private List<Patient> visited_patients;
     private List<Appointment> appointments;
 
     public Doctor(String user_n, String p, String n, String g, String sp, List<Patient> v_p, List<Appointment> appointment){
         super(user_n, p, n, g);
         this.specialization = sp;
-        this.visted_patients = v_p;
+        this.visited_patients = v_p;
         this.appointments = appointment;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getGender() {
-        return this.gender;
     }
 
     public String getSpecialization() {
@@ -45,7 +26,7 @@ public class Doctor extends User implements Serializable {
     }
 
     public void addPatient(Patient p){
-        visted_patients.add(p);
+        visited_patients.add(p);
     }
 
     public LinkedHashSet<Doctor> PastDoctor(Patient p){
@@ -68,11 +49,11 @@ public class Doctor extends User implements Serializable {
     public String toString() {
         return "Doctor{" +
                 "username='" + username + '\'' +
-                ", passwork='" + passwork + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", specialization='" + specialization + '\'' +
-                ", visted_patients=" + visted_patients +
+                ", visited_patients=" + visited_patients +
                 ", appointments=" + appointments +
                 '}';
     }
