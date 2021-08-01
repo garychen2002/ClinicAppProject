@@ -12,6 +12,9 @@ public class DoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
+
+        Intent intent = getIntent();
+//        Doctor d = (Doctor)Intent.
     }
     
     public void openUpcomingAppointment(View view){

@@ -1,9 +1,10 @@
 package com.example.clinicappproject;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-public class Doctor extends User{
+public class Doctor extends User implements Serializable {
     private String username;
     private String passwork;
     private String name;
@@ -12,11 +13,20 @@ public class Doctor extends User{
     private List<Patient> visted_patients;
     private List<Appointment> appointments;
 
-    public Doctor(String user_n, String p, String n, String g, String sp, List<Patient> v_p, List<Appointment> appointment){
+    public Doctor(String user_n, String p, String n, String g) {
         super(user_n, p, n, g);
-        this.specialization = sp;
-        this.visted_patients = v_p;
-        this.appointments = appointment;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public String getName() {
@@ -26,6 +36,17 @@ public class Doctor extends User{
     public String getGender() {
         return this.gender;
     }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+    public Doctor(String user_n, String p, String n, String g, String sp, List<Patient> v_p, List<Appointment> appointment){
+        super(user_n, p, n, g);
+        this.specialization = sp;
+        this.visted_patients = v_p;
+        this.appointments = appointment;
+    }
+
 
     public void addPatient(Patient p){
         visted_patients.add(p);

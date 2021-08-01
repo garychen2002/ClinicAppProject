@@ -20,15 +20,18 @@
         android:id="@+id/button"
         android:layout_width="205dp"
         android:layout_height="63dp"
+        android:layout_marginBottom="372dp"
         android:text="@string/d_appointment"
+        app:backgroundTint="#ADCFBD"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="246dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="178dp"
         android:layout_height="61dp"
+        android:fontFamily="sans-serif"
         android:text="@string/d_info"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
