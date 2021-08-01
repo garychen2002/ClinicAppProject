@@ -1,9 +1,10 @@
 package com.example.clinicappproject;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-public class Doctor extends User{
+public class Doctor extends User implements Serializable {
     private String username;
     private String passwork;
     private String name;
@@ -47,5 +48,17 @@ public class Doctor extends User{
         return "Gender " + this.gender + "specialization: " + this.specialization;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "username='" + username + '\'' +
+                ", passwork='" + passwork + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", specialization='" + specialization + '\'' +
+                ", visted_patients=" + visted_patients +
+                ", appointments=" + appointments +
+                '}';
+    }
 }
 

@@ -1,8 +1,9 @@
 package com.example.clinicappproject;
 
+import java.io.Serializable;
 import java.util.LinkedHashSet;
 
-public class Patient{
+public class Patient implements Serializable {
 
     private String name;
     private String gender;
@@ -34,26 +35,5 @@ public class Patient{
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-
-    public LinkedHashSet<Doctor> getPrev_doctors() {
-        return prev_doctors;
-    }
-
-    public void setPrev_doctors(LinkedHashSet<Doctor> prev_doctors) {
-        this.prev_doctors = prev_doctors;
     }
 }

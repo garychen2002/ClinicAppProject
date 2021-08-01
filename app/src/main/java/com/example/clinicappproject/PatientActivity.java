@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,9 +15,13 @@ public class PatientActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     //private Button button3;
+    private Patient currentPatient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        currentPatient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+        Log.i("info", currentPatient.getName());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
@@ -36,8 +41,10 @@ public class PatientActivity extends AppCompatActivity {
                 openMyProfile();
             }
         });
-
-
+//        PatientCallback callback = new PatientCallback();
+//        Patient est = FirebaseAccess.patientLogin("test1", "password1", callback);
+//        Patient est2 = FirebaseAccess.patientLogin("test2", "password2", callback);
+//        Patient est3 = FirebaseAccess.patientLogin("test2", "test1", callback);
 
     };
 
