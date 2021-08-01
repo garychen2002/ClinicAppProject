@@ -27,7 +27,7 @@ public class DoctorLoginTest extends AppCompatActivity implements Callback {
         EditText passwordText = (EditText) findViewById(R.id.editTextTextPassword);
         String username = usernameText.getText().toString();
         String password = passwordText.getText().toString();
-        FirebaseAccess.patientLogin(username, password, this);
+        FirebaseAccess.doctorLogin(username, password, this);
     }
 
     @Override

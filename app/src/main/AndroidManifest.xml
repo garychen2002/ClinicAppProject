@@ -20,12 +20,8 @@
         </activity>
         <activity
             android:name=".PatientLoginTest"
+            android:parentActivityName=".LoginChooseTestActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ChooseDoctor" />
         <activity android:name=".MyProfileActivity" />
@@ -36,6 +32,9 @@
             android:name=".DisplayAppointmentActivity"
             android:parentActivityName=".DoctorActivity"></activity>
         <activity android:name=".BookAppointmentActivity" />
+        <activity android:name=".DoctorLoginTest"
+            android:parentActivityName=".LoginChooseTestActivity">
+        </activity>
         <activity android:name=".PatientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

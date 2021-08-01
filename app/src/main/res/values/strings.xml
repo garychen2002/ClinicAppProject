@@ -22,6 +22,7 @@
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="doctor_login_title">Login as doctor</string>
+    <string name="login_button">LOGIN</string>
 
     <string-array name="departments">
         <item>Cardiology</item>

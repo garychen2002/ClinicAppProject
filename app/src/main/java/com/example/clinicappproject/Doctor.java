@@ -10,6 +10,10 @@ public class Doctor extends User implements Serializable {
     private List<Patient> visited_patients;
     private List<Appointment> appointments;
 
+    public Doctor() {
+
+    }
+
     public Doctor(String user_n, String p, String n, String g, String sp, List<Patient> v_p, List<Appointment> appointment){
         super(user_n, p, n, g);
         this.specialization = sp;

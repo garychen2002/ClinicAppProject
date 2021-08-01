@@ -15,10 +15,9 @@ import com.google.firebase.database.ValueEventListener;
 public class FirebaseAccess {
 
 
-    static public Patient patientLogin(String username, String password, Callback callback)
+    static public void patientLogin(String username, String password, Callback callback)
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Patient patient = null;
         Query userQuery = ref.child("patients").orderByChild("username").equalTo(username);
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,7 +56,6 @@ public class FirebaseAccess {
 
             }
         });
-        return patient;
     }
 
     static public void addAppointment(Appointment appointment)
@@ -83,5 +81,48 @@ public class FirebaseAccess {
     static public void filter(String gender, String specialization)
     {
 
+    }
+
+    static public void doctorLogin(String username, String password, Callback callback)
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query userQuery = ref.child("doctors").orderByChild("username").equalTo(username);
+        userQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    Log.i("info", "SNAPSHOT EXISTS");
+                    for (DataSnapshot user: snapshot.getChildren()) {
+                        Log.i("info", user.getKey());
+                        String compare = user.child("password").getValue().toString();
+                        Log.i("info", compare);
+                        if (compare.equals(password))
+                        {
+                            Log.i("info", "success");
+                            Doctor doctor = user.getValue(Doctor.class);
+                            callback.doctorLogin(doctor);
+                            // not sure how to get out of here
+                        }
+                        else
+                        {
+                            callback.doctorLogin(null);
+//                            Log.i("info", "invalid password");
+                        }
+                    }
+                }
+                else
+                {
+                    callback.doctorLogin(null);
+//                    Log.i("info", "invalid user");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("warning", "loadPost:onCancelled", error.toException());
+
+            }
+        });
     }
 }
