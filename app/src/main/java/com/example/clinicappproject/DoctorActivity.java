@@ -20,7 +20,7 @@ public class DoctorActivity extends AppCompatActivity {
         Intent intent = getIntent();
 //        Doctor d = (Doctor)Intent.
         currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
-        Log.i("info", currentPatient.toString());
+        Log.i("info", currentDoctor.toString());
     }
     
     public void openUpcomingAppointment(View view){
