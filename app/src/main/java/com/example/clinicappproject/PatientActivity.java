@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,9 +15,13 @@ public class PatientActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     //private Button button3;
+    private Patient currentPatient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        currentPatient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+        Log.i("info", currentPatient.getName());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
