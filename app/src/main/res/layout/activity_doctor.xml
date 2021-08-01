@@ -20,14 +20,9 @@
         android:id="@+id/button"
         android:layout_width="205dp"
         android:layout_height="63dp"
-<<<<<<< Updated upstream
         android:layout_marginBottom="372dp"
         android:text="@string/d_appointment"
         app:backgroundTint="#ADCFBD"
-=======
-        android:layout_marginBottom="352dp"
-        android:text="@string/d_appointment"
->>>>>>> Stashed changes
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
