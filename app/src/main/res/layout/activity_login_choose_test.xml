@@ -35,9 +35,13 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="172dp"
-        android:layout_height="61dp"
+        android:layout_width="241dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="36dp"
+        android:lineSpacingExtra="8sp"
         android:text="@string/welcome_login"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="76dp" />
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
