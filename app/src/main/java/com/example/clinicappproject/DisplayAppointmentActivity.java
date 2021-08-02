@@ -2,6 +2,7 @@ package com.example.clinicappproject;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -22,6 +23,8 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_appointment);
         Log.i("info", "help");
+        recyclerView = findViewById(R.id.rvAppointments);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
         currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
                Log.i("info", "help2");
@@ -31,8 +34,7 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 //        FirebaseAccess.addAppointment(a);
         FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this);
 
-        dAdapter = new DoctorAppAdapter(DisplayAppointmentActivity.this,appointments);
-        recyclerView.setAdapter(dAdapter);
+
 
 
         ChangeListener();
@@ -60,8 +62,13 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 
     @Override
     public void getDoctorAppointments(ArrayList<Appointment> list) {
-        appointments = list;
-        Log.i("info", appointments.toString());
+        if (list != null) {
+            appointments = list;
+            Log.i("info", appointments.toString());
+            dAdapter = new DoctorAppAdapter(DisplayAppointmentActivity.this, appointments);
+            recyclerView.setAdapter(dAdapter);
+        }
+
     }
 
     @Override

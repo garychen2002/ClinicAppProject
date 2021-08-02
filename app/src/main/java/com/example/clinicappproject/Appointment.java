@@ -2,8 +2,16 @@ package com.example.clinicappproject;
 
 
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Appointment implements Serializable {
@@ -30,12 +38,16 @@ public class Appointment implements Serializable {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public String toString() {
+        Date date = new Date(time);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String formattedTime = format.format(date);
         return "Appointment{" +
-                "doctor=" + doctor +
-                ", patient=" + patient +
-                ", time=" + time +
+                "doctor = " + doctor.getName() +
+                ", patient=" + patient.getName() +
+                ", time=" + formattedTime +
                 '}';
     }
 

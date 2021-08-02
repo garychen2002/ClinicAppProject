@@ -25,8 +25,14 @@ public class Patient  extends User implements Serializable{
 
     public String postDoctor(){
         String s = "";
-        for (Doctor d : prev_doctors){
-            s = s + d.name + " ";
+        if (prev_doctors != null) {
+            for (Doctor d : prev_doctors) {
+                s = s + d.name + " ";
+            }
+        }
+        else
+        {
+            return "No previous doctors";
         }
         return s;
     }
