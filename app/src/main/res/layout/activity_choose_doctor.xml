@@ -8,7 +8,7 @@
     tools:context=".ChooseDoctor">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/d_info"
         android:layout_width="170dp"
         android:layout_height="44dp"
         android:layout_marginStart="84dp"

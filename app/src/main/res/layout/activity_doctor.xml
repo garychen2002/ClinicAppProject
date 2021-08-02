@@ -30,7 +30,7 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/d_info"
         android:layout_width="178dp"
         android:layout_height="61dp"
         android:fontFamily="sans-serif"

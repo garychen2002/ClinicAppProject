@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class DoctorActivity extends AppCompatActivity {
 
@@ -20,6 +21,12 @@ public class DoctorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
         Log.i("info", currentDoctor.toString());
+
+        TextView d_n = findViewById(R.id.Name);
+        d_n.setText(currentDoctor.getName());
+
+        TextView info = findViewById(R.id.d_info);
+        info.setText(currentDoctor.getInfo());
     }
     
     public void openUpcomingAppointment(View view){
@@ -27,5 +34,7 @@ public class DoctorActivity extends AppCompatActivity {
         intent.putExtra("com.example.clinicappproject.CurrentDoctor", currentDoctor);
         startActivity(intent);
     }
+
+
 
 }

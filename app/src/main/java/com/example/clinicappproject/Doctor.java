@@ -59,5 +59,6 @@ public class Doctor extends User implements Serializable {
                 ", appointments=" +
                 '}';
     }
+
 }
 
