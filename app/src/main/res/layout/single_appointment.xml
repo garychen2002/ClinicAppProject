@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="378dp"
+        android:layout_height="145dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/booking_status"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:text="@string/booking_status" />
+
+        <TextView
+            android:id="@+id/p_info"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:text="@string/p_info" />
+
+        <TextView
+            android:id="@+id/previous_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="@string/previous_d" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -62,4 +62,12 @@ public class Appointment implements Serializable {
     public void setTime(long time) {
         this.time = time;
     }
+
+    public String getPatientInfo(){
+        return patient.toString();
+    }
+
+    public String getPreDoctor(){
+        return patient.postDoctor();
+    }
 }

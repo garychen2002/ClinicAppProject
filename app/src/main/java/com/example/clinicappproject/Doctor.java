@@ -33,7 +33,7 @@ public class Doctor extends User implements Serializable {
         visited_patients.add(p);
     }
 
-    public LinkedHashSet<Doctor> PastDoctor(Patient p){
+    public String PastDoctor(Patient p){
         return p.postDoctor();
     }
 
