@@ -30,4 +30,9 @@ public class PatientCallback implements Callback {
     public void getDoctorAppointments(ArrayList<Appointment> list) {
 
     }
+
+    @Override
+    public void openChooseDoctor(ArrayList<Doctor> doctor_list) {
+
+    }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,7 +17,7 @@ import java.util.GregorianCalendar;
 
 
 
-public class BookAppointmentActivity extends AppCompatActivity {
+public class BookAppointmentActivity extends AppCompatActivity implements Callback {
 
     GregorianCalendar date;
     String gender;
@@ -34,7 +35,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                openChooseDoctor();
+                gather_info();
 
             }
         });
@@ -42,36 +43,55 @@ public class BookAppointmentActivity extends AppCompatActivity {
     }
 
 
-    public void gather_info(){
-        Spinner sp1 = (Spinner)findViewById(R.id.department);
-        spec= String.valueOf(sp1.getSelectedItem());
+    public void gather_info() {
+        Spinner sp1 = (Spinner) findViewById(R.id.department);
+        spec = String.valueOf(sp1.getSelectedItem());
 
-        Spinner sp2 = (Spinner)findViewById(R.id.doctor_gender);
-        gender= String.valueOf(sp2.getSelectedItem());
+        Spinner sp2 = (Spinner) findViewById(R.id.doctor_gender);
+        gender = String.valueOf(sp2.getSelectedItem());
 
-        Spinner sp3 = (Spinner)findViewById(R.id.timePicker);
+        Spinner sp3 = (Spinner) findViewById(R.id.timePicker);
         String time = String.valueOf(sp3.getSelectedItem());
-        String [] parts = time.split(":");
+        String[] parts = time.split(":");
 
-        DatePicker dp = (DatePicker)findViewById(R.id.datePicker);
-        date= new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
+        DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
+        date = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
                 Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 
         doctors = new ArrayList<Doctor>();
-        FirebaseAccess.filter(gender, spec, doctors);
+        FirebaseAccess.filter(gender, spec, doctors, this);
 
 
     }
 
-    public void openChooseDoctor(){
+
+    @Override
+    public void doctorLogin(Doctor doctor) {
+
+    }
+
+    @Override
+    public void patientLogin(Patient patient) {
+
+    }
+
+    @Override
+    public void createAppointment(boolean success) {
+
+    }
+
+    @Override
+    public void getDoctorAppointments(ArrayList<Appointment> list) {
+
+    }
+
+    @Override
+    public void openChooseDoctor(ArrayList<Doctor> doctor_list) {
+        doctors = doctor_list;
+        Log.i("info", doctor_list.toString());
         Intent intent = new Intent(this, ChooseDoctor.class);
-        gather_info();
         intent.putExtra("DOCTOR_LIST",doctors);
         intent.putExtra("TIME",date.getTimeInMillis());
         startActivity(intent);
     }
-
-
-
-
 }

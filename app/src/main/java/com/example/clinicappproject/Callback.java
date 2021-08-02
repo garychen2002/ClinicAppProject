@@ -7,5 +7,6 @@ public interface Callback {
     void patientLogin(Patient patient);
     void createAppointment(boolean success);
     void getDoctorAppointments(ArrayList<Appointment> list);
+    void openChooseDoctor(ArrayList<Doctor> doctor_list);
 
 }

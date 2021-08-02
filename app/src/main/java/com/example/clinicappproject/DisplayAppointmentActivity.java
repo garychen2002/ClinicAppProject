@@ -63,4 +63,9 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
         appointments = list;
         Log.i("info", appointments.toString());
     }
+
+    @Override
+    public void openChooseDoctor(ArrayList<Doctor> doctor_list) {
+
+    }
 }

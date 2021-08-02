@@ -28,11 +28,12 @@ public class ChooseDoctor extends AppCompatActivity {
 
         doctor_list = (Spinner)findViewById(R.id.spinner);
         apppointment_time = getIntent().getLongExtra("TIME",0);
-        ArrayList<Parcelable> doctors = getIntent().getParcelableArrayListExtra("DOCTOR_LIST");
+//        ArrayList<Parcelable> doctors = getIntent().getParcelableArrayListExtra("DOCTOR_LIST");
+        ArrayList<Doctor> doctors = (ArrayList<Doctor>) getIntent().getSerializableExtra("DOCTOR_LIST");
 
         ArrayList<String> doctor_names = new ArrayList<String>();
-        for(Parcelable p: doctors){
-            Doctor d = (Doctor)p;
+        for(Doctor d: doctors){
+//            Doctor d = (Doctor)p;
             doctor_names.add(d.getName());
         }
 

@@ -69,4 +69,9 @@ public class DoctorLoginTest extends AppCompatActivity implements Callback {
     public void getDoctorAppointments(ArrayList<Appointment> list) {
 
     }
+
+    @Override
+    public void openChooseDoctor(ArrayList<Doctor> doctor_list) {
+
+    }
 }

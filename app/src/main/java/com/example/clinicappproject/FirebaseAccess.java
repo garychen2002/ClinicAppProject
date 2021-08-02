@@ -1,7 +1,5 @@
 package com.example.clinicappproject;
 
-import android.content.Intent;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -14,7 +12,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 public class FirebaseAccess {
 
@@ -82,19 +79,24 @@ public class FirebaseAccess {
         x.child("name").setValue(patient.getName());
     }
 
-    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list)
+    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list, Callback callback)
     {
         doctor_list.clear();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
-        Query doctorQuery = ref.child("doctors").orderByChild("specialization_gender").equalTo(specialization+"_"+gender);
+        Query doctorQuery = ref.child("doctors").orderByChild("specialization").equalTo(specialization);
         doctorQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data: snapshot.getChildren()){
                     Doctor d = data.getValue(Doctor.class);
-                    doctor_list.add(d);
+                    if (d.getGender().equals(gender)) {
+                        doctor_list.add(d);
+                    }
+
                 }
+                callback.openChooseDoctor(doctor_list);
+
             }
 
             @Override
