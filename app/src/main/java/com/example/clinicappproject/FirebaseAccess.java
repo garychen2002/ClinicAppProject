@@ -13,6 +13,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class FirebaseAccess {
 
@@ -80,10 +81,44 @@ public class FirebaseAccess {
         x.child("name").setValue(patient.getName());
     }
 
-    static public void filter(String gender, String specialization)
+    static public ArrayList<Doctor> filter(String gender, String specialization)
     {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query specQuery = ref.child("doctors").orderByChild("specialization").equalTo(specialization);
+        ArrayList<Doctor> doctorList= new ArrayList<Doctor>();
+        specQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Log.i("info", "exists");
+                    doctorList.clear();
+                    for (DataSnapshot doctor: snapshot.getChildren()){
+                        Doctor d=doctor.getValue(Doctor.class);
+                        doctorList.add(d);
+                    }
+                }
+                else{
+                    Log.i("info", "no doctors");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("warning", "loadPost:onCancelled", error.toException());
+            }
+        });
+/*
+        for(Doctor d: doctorList){
+            if(!d.getGender().equals(gender)){
+                doctorList.remove(d);
+            }
+        }*/
+        return doctorList;
+        //having trouble with this function, not sure what to do next
 
     }
+
+
 
     static public void getAppointmentsByDoctor(Doctor doctor, Callback callback)
     {

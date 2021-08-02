@@ -10,7 +10,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 
 
-
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 
@@ -32,7 +32,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
         find_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //gather_info();
+
+                openChooseDoctor();
 
             }
         });
@@ -40,7 +41,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
     }
 
 
-    public void gather_info(View view){
+    public ArrayList<String> gather_info(){
         Spinner sp1 = (Spinner)findViewById(R.id.department);
         spec= String.valueOf(sp1.getSelectedItem());
 
@@ -55,10 +56,19 @@ public class BookAppointmentActivity extends AppCompatActivity {
         date= new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
                 Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 
+
+        ArrayList<Doctor> al = FirebaseAccess.filter(gender, spec);
+        ArrayList<String> result = new ArrayList<String>();
+
+        for(Doctor d: al){
+            result.add(d.getName());
+        }
+        return result;
     }
 
-    public void openChooseDDoctor(){
+    public void openChooseDoctor(){
         Intent intent = new Intent(this, ChooseDoctor.class);
+        intent.putExtra("DOCTOR_LIST",gather_info());
         startActivity(intent);
     }
 
