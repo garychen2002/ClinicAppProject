@@ -22,6 +22,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
     String gender;
     String spec;
     Button find_doctor;
+    ArrayList<Doctor> doctors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
     }
 
 
-    public ArrayList<String> gather_info(){
+    public void gather_info(){
         Spinner sp1 = (Spinner)findViewById(R.id.department);
         spec= String.valueOf(sp1.getSelectedItem());
 
@@ -56,19 +57,17 @@ public class BookAppointmentActivity extends AppCompatActivity {
         date= new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
                 Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 
+        doctors = new ArrayList<Doctor>();
+        FirebaseAccess.filter(gender, spec, doctors);
 
-        ArrayList<Doctor> al = FirebaseAccess.filter(gender, spec);
-        ArrayList<String> result = new ArrayList<String>();
 
-        for(Doctor d: al){
-            result.add(d.getName());
-        }
-        return result;
     }
 
     public void openChooseDoctor(){
         Intent intent = new Intent(this, ChooseDoctor.class);
-        intent.putExtra("DOCTOR_LIST",gather_info());
+        gather_info();
+        intent.putExtra("DOCTOR_LIST",doctors);
+        intent.putExtra("TIME",date.getTimeInMillis());
         startActivity(intent);
     }
 

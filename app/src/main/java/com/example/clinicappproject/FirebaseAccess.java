@@ -1,6 +1,7 @@
 package com.example.clinicappproject;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -81,24 +82,18 @@ public class FirebaseAccess {
         x.child("name").setValue(patient.getName());
     }
 
-    static public ArrayList<Doctor> filter(String gender, String specialization)
+    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list)
     {
+        doctor_list.clear();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Query specQuery = ref.child("doctors").orderByChild("specialization").equalTo(specialization);
-        ArrayList<Doctor> doctorList= new ArrayList<Doctor>();
-        specQuery.addValueEventListener(new ValueEventListener() {
+
+        Query doctorQuery = ref.child("doctors").orderByChild("specialization_gender").equalTo(specialization+"_"+gender);
+        doctorQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    Log.i("info", "exists");
-                    doctorList.clear();
-                    for (DataSnapshot doctor: snapshot.getChildren()){
-                        Doctor d=doctor.getValue(Doctor.class);
-                        doctorList.add(d);
-                    }
-                }
-                else{
-                    Log.i("info", "no doctors");
+                for(DataSnapshot data: snapshot.getChildren()){
+                    Doctor d = data.getValue(Doctor.class);
+                    doctor_list.add(d);
                 }
             }
 
@@ -107,13 +102,9 @@ public class FirebaseAccess {
                 Log.w("warning", "loadPost:onCancelled", error.toException());
             }
         });
-/*
-        for(Doctor d: doctorList){
-            if(!d.getGender().equals(gender)){
-                doctorList.remove(d);
-            }
-        }*/
-        return doctorList;
+
+
+
         //having trouble with this function, not sure what to do next
 
     }

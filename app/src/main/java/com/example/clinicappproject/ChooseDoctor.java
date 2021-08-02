@@ -3,12 +3,14 @@ package com.example.clinicappproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.ArrayAdapter;
 
 import android.widget.Button;
 import android.widget.Spinner;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ChooseDoctor extends AppCompatActivity {
@@ -16,6 +18,7 @@ public class ChooseDoctor extends AppCompatActivity {
     ArrayAdapter<String> doctorAdapter;
     String choice;
     Button final_book;
+    long apppointment_time;
 
 
     @Override
@@ -24,9 +27,17 @@ public class ChooseDoctor extends AppCompatActivity {
         setContentView(R.layout.activity_choose_doctor);
 
         doctor_list = (Spinner)findViewById(R.id.spinner);
+        apppointment_time = getIntent().getLongExtra("TIME",0);
+        ArrayList<Parcelable> doctors = getIntent().getParcelableArrayListExtra("DOCTOR_LIST");
 
-        ArrayList<String> doctors = getIntent().getStringArrayListExtra("DOCTOR_LIST");
-        doctorAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, doctors);
+        ArrayList<String> doctor_names = new ArrayList<String>();
+        for(Parcelable p: doctors){
+            Doctor d = (Doctor)p;
+            doctor_names.add(d.getName());
+        }
+
+
+        doctorAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, doctor_names);
 
         doctor_list.setAdapter(doctorAdapter);
 
