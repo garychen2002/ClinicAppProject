@@ -12,6 +12,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class FirebaseAccess {
 
 
@@ -80,6 +82,36 @@ public class FirebaseAccess {
 
     static public void filter(String gender, String specialization)
     {
+
+    }
+
+    static public void getAppointmentsByDoctor(Doctor doctor, Callback callback)
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query userQuery = ref.child("appointments").orderByChild("doctor").equalTo(doctor.getUsername());
+        ArrayList<Appointment> appointmentArrayList = new ArrayList<Appointment>();
+        userQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    appointmentArrayList.clear();
+                    for (DataSnapshot user: snapshot.getChildren()) {
+                        Appointment a = user.getValue(Appointment.class);
+                        appointmentArrayList.add(a);
+                    }
+                    Log.i("info", appointmentArrayList.toString());
+                    callback.getDoctorAppointments(appointmentArrayList);
+
+                }
+
+            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w("warning", "loadPost:onCancelled", error.toException());
+
+                }
+            });
+
 
     }
 

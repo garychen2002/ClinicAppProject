@@ -2,6 +2,8 @@ package com.example.clinicappproject;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class PatientCallback implements Callback {
 
 
@@ -21,6 +23,11 @@ public class PatientCallback implements Callback {
 
     @Override
     public void createAppointment(boolean success) {
+
+    }
+
+    @Override
+    public void getDoctorAppointments(ArrayList<Appointment> list) {
 
     }
 }

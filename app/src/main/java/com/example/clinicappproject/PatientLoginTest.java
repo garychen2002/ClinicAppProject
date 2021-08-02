@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+
 public class PatientLoginTest extends AppCompatActivity implements Callback {
 
     private View myView;
@@ -53,6 +55,11 @@ public class PatientLoginTest extends AppCompatActivity implements Callback {
 
     @Override
     public void createAppointment(boolean success) {
+
+    }
+
+    @Override
+    public void getDoctorAppointments(ArrayList<Appointment> list) {
 
     }
 }

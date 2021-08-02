@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+
 public class DoctorLoginTest extends AppCompatActivity implements Callback {
 
     private View myView;
@@ -60,6 +62,11 @@ public class DoctorLoginTest extends AppCompatActivity implements Callback {
 
     @Override
     public void createAppointment(boolean success) {
+
+    }
+
+    @Override
+    public void getDoctorAppointments(ArrayList<Appointment> list) {
 
     }
 }
