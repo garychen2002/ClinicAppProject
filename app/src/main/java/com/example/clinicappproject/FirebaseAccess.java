@@ -87,13 +87,16 @@ public class FirebaseAccess {
 
     static public void getAppointmentsByDoctor(Doctor doctor, Callback callback)
     {
+        Log.i("info", "hhhhhhhhhhhhhhhh");
+
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Query userQuery = ref.child("appointments").orderByChild("doctor").equalTo(doctor.getUsername());
+        Query userQuery = ref.child("appointments").orderByChild("doctor/username").equalTo(doctor.getUsername());
         ArrayList<Appointment> appointmentArrayList = new ArrayList<Appointment>();
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    Log.i("info", "exists");
                     appointmentArrayList.clear();
                     for (DataSnapshot user: snapshot.getChildren()) {
                         Appointment a = user.getValue(Appointment.class);
@@ -103,6 +106,9 @@ public class FirebaseAccess {
                     callback.getDoctorAppointments(appointmentArrayList);
 
                 }
+                else
+                    Log.i("info", "doesnt exists");
+
 
             }
                 @Override
