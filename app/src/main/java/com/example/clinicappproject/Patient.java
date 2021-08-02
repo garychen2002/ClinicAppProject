@@ -1,6 +1,7 @@
 package com.example.clinicappproject;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 public class Patient  extends User implements Serializable{
@@ -22,8 +23,12 @@ public class Patient  extends User implements Serializable{
         return prev_doctors.add(d);
     }
 
-    public LinkedHashSet<Doctor> postDoctor(){
-        return prev_doctors;
+    public String postDoctor(){
+        String s = "";
+        for (Doctor d : prev_doctors){
+            s = s + d.name + " ";
+        }
+        return s;
     }
 
     @Override

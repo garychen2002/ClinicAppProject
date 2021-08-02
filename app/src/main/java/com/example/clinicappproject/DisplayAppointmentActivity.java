@@ -2,20 +2,20 @@ package com.example.clinicappproject;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 public class DisplayAppointmentActivity extends AppCompatActivity implements Callback {
     ArrayList<Appointment> appointments;
     Doctor currentDoctor;
+    DoctorAppAdapter dAdapter;
+    RecyclerView recyclerView;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,17 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 //        FirebaseAccess.addAppointment(a);
         FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this);
 
+        dAdapter = new DoctorAppAdapter(DisplayAppointmentActivity.this,appointments);
+        recyclerView.setAdapter(dAdapter);
+
+
+        ChangeListener();
     }
+
+    public void ChangeListener(){
+    //  need implementation still
+    }
+
 
     @Override
     public void doctorLogin(Doctor doctor) {
