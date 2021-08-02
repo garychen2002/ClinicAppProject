@@ -11,6 +11,8 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -24,6 +26,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
     String spec;
     Button find_doctor;
     ArrayList<Doctor> doctors;
+    View myView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,9 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
         find_doctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                myView = view;
                 gather_info();
+
 
             }
         });
@@ -89,9 +93,16 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
     public void openChooseDoctor(ArrayList<Doctor> doctor_list) {
         doctors = doctor_list;
         Log.i("info", doctor_list.toString());
-        Intent intent = new Intent(this, ChooseDoctor.class);
-        intent.putExtra("DOCTOR_LIST",doctors);
-        intent.putExtra("TIME",date.getTimeInMillis());
-        startActivity(intent);
+        if (doctors.isEmpty())
+        {
+            Snackbar error = Snackbar.make(myView, "No doctors found", Snackbar.LENGTH_SHORT);
+            error.show();
+        }
+        else {
+            Intent intent = new Intent(this, ChooseDoctor.class);
+            intent.putExtra("DOCTOR_LIST", doctors);
+            intent.putExtra("TIME", date.getTimeInMillis());
+            startActivity(intent);
+        }
     }
 }
