@@ -8,7 +8,6 @@ public class Doctor extends User implements Serializable {
 
     private String specialization;
     private List<Patient> visited_patients;
-    private List<Appointment> appointments;
 
     public Doctor() {
 
@@ -18,7 +17,6 @@ public class Doctor extends User implements Serializable {
         super(user_n, p, n, g);
         this.specialization = sp;
         this.visited_patients = v_p;
-        this.appointments = appointment;
     }
 
     public String getSpecialization() {
@@ -58,7 +56,7 @@ public class Doctor extends User implements Serializable {
                 ", gender='" + gender + '\'' +
                 ", specialization='" + specialization + '\'' +
                 ", visited_patients=" + visited_patients +
-                ", appointments=" + appointments +
+                ", appointments=" +
                 '}';
     }
 }
