@@ -21,7 +21,13 @@ public class Patient  extends User implements Serializable{
     }
 
     public boolean add_doctor(Doctor d){
-        return prev_doctors.add(d);
+        if (prev_doctors != null)
+            return prev_doctors.add(d);
+        else
+        {
+            prev_doctors = new ArrayList<Doctor>();
+            return prev_doctors.add(d);
+        }
     }
 
     public String postDoctor(){
