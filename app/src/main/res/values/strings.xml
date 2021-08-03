@@ -58,6 +58,6 @@
     <string name="booking_status">Booking Status</string>
     <string name="p_info">Patient\'s info</string>
     <string name="previous_d">Previous Doctor</string>
-
+    <string name="last_message">Booking Succeed</string>
 
 </resources>
