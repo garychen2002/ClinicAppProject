@@ -41,7 +41,6 @@ public class ChooseDoctor extends AppCompatActivity {
 
         ArrayList<String> doctor_names = new ArrayList<String>();
         for(Doctor d: doctors){
-
             doctor_names.add(d.getName());
         }
 
@@ -57,6 +56,7 @@ public class ChooseDoctor extends AppCompatActivity {
                final_doctor =d;
            }
         }
+        current_patient.add_doctor(final_doctor);
         FirebaseAccess.addAppointment(new Appointment(final_doctor,current_patient,apppointment_time));
 
         final_book = (Button) findViewById(R.id.button2);
@@ -66,12 +66,15 @@ public class ChooseDoctor extends AppCompatActivity {
                 openFinalPage();
             }
         });
-        // show successful or failed in next activity
+
 
     }
+
+
 
     public void openFinalPage(){
         Intent intent = new Intent(this, BookingFinalPage.class);
         startActivity(intent);
     }
+
 }

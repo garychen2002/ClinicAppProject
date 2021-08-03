@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="448dp"
         android:text="@string/book_appointment"
         app:backgroundTint="#978F8F"
         app:layout_constraintBottom_toBottomOf="parent"
