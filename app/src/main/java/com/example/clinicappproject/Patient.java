@@ -48,4 +48,11 @@ public class Patient  extends User implements Serializable{
         return "Name: " + name + "\nGender: " + gender;
     }
 
+    public LinkedHashSet<Doctor> getPrev_doctors() {
+        return prev_doctors;
+    }
+
+    public void setPrev_doctors(LinkedHashSet<Doctor> prev_doctors) {
+        this.prev_doctors = prev_doctors;
+    }
 }
