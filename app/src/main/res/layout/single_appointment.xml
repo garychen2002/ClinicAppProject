@@ -1,29 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#00FFFFFF"
+    app:cardBackgroundColor="#00FFFFFF">
 
     <LinearLayout
-        android:layout_width="378dp"
-        android:layout_height="145dp"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:background="#FCFCFC"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/booking_status"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:text="@string/booking_status" />
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/p_info"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:text="@string/p_info" />
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="30dp"
+                android:background="#FFFFFF"
+                android:text="Booking Status: "
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/previous_doctor"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:text="@string/previous_d" />
+            <TextView
+                android:id="@+id/booking_status"
+                android:layout_width="210dp"
+                android:layout_height="30dp"
+                android:background="#FFFFFF"
+                android:text="@string/booking_status"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:text="Patient's Info:  "
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/p_info"
+                android:layout_width="210dp"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:text="@string/p_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="#00FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="60dp"
+                android:background="#00FFFFFF"
+                android:text="Previous Doctor: "
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/previous_doctor"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:text="@string/previous_d" />
+        </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
