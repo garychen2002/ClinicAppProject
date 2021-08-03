@@ -34,7 +34,7 @@ public class DoctorAppAdapter extends RecyclerView.Adapter<DoctorAppAdapter.MyVi
     public void onBindViewHolder(@NonNull DoctorAppAdapter.MyViewHolder holder, int position) {
         Appointment a = appointmentArrayList.get(position);
 
-        holder.bookingStatus.setText(String.valueOf(a.toString()));
+        holder.bookingStatus.setText(a.booking_status());
         holder.patientInfo.setText(a.getPatientInfo());
         holder.preDoctor.setText(a.getPreDoctor());
     }

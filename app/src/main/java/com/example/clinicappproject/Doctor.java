@@ -44,7 +44,7 @@ public class Doctor extends User implements Serializable {
     }
 
     public String getInfo() {
-        return "Gender " + this.gender + "specialization: " + this.specialization;
+        return "Gender: " + this.gender + "\nspecialization: " + this.specialization;
     }
 
     @Override

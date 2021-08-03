@@ -34,15 +34,12 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 //        FirebaseAccess.addAppointment(a);
         FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this);
 
-
-
-
-        ChangeListener();
+//        ChangeListener();
     }
 
-    public void ChangeListener(){
-    //  need implementation still
-    }
+//    public void ChangeListener(){
+//    //  need implementation still
+//    }
 
 
     @Override
