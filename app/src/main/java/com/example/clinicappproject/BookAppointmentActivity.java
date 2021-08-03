@@ -27,9 +27,17 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
     Button find_doctor;
     ArrayList<Doctor> doctors;
     View myView;
+    Patient current_patient;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = getIntent();
+        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
@@ -63,7 +71,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
                 Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 
         doctors = new ArrayList<Doctor>();
-        FirebaseAccess.filter(gender, spec, doctors, this);
+        FirebaseAccess.filter(gender, spec, doctors, date.getTimeInMillis(), this);
 
 
     }
@@ -102,6 +110,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
             Intent intent = new Intent(this, ChooseDoctor.class);
             intent.putExtra("DOCTOR_LIST", doctors);
             intent.putExtra("TIME", date.getTimeInMillis());
+            intent.putExtra("com.example.clinicappproject.CurrentPatient", current_patient);
             startActivity(intent);
         }
     }

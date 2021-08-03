@@ -1,5 +1,6 @@
 package com.example.clinicappproject;
 
+import android.telecom.Call;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FirebaseAccess {
@@ -79,7 +81,33 @@ public class FirebaseAccess {
         x.child("name").setValue(patient.getName());
     }
 
-    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list, Callback callback)
+
+    static public void filter_time(ArrayList<Doctor> doctor_list, long time){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query timeQuery = ref.child("appointments").orderByChild("time").equalTo(time);
+        timeQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!doctor_list.isEmpty()&&snapshot.exists()){
+                    for(DataSnapshot data: snapshot.getChildren()){
+                        Appointment a = data.getValue(Appointment.class);
+                        if(doctor_list.contains(a.getDoctor())){
+                            doctor_list.remove(a.getDoctor());
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("warning", "loadPost:onCancelled", error.toException());
+            }
+        });
+    }
+
+
+    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list, long time, Callback callback)
     {
         doctor_list.clear();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
@@ -95,6 +123,7 @@ public class FirebaseAccess {
                     }
 
                 }
+                FirebaseAccess.filter_time(doctor_list, time);
                 callback.openChooseDoctor(doctor_list);
 
             }
@@ -107,7 +136,7 @@ public class FirebaseAccess {
 
 
 
-        //having trouble with this function, not sure what to do next
+
 
     }
 

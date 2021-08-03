@@ -2,8 +2,10 @@ package com.example.clinicappproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
+
+import android.view.View;
 import android.widget.ArrayAdapter;
 
 import android.widget.Button;
@@ -19,21 +21,27 @@ public class ChooseDoctor extends AppCompatActivity {
     String choice;
     Button final_book;
     long apppointment_time;
+    Doctor final_doctor;
+    Patient current_patient;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = getIntent();
+        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_doctor);
 
         doctor_list = (Spinner)findViewById(R.id.spinner);
         apppointment_time = getIntent().getLongExtra("TIME",0);
-//        ArrayList<Parcelable> doctors = getIntent().getParcelableArrayListExtra("DOCTOR_LIST");
+
         ArrayList<Doctor> doctors = (ArrayList<Doctor>) getIntent().getSerializableExtra("DOCTOR_LIST");
 
         ArrayList<String> doctor_names = new ArrayList<String>();
         for(Doctor d: doctors){
-//            Doctor d = (Doctor)p;
+
             doctor_names.add(d.getName());
         }
 
@@ -43,8 +51,27 @@ public class ChooseDoctor extends AppCompatActivity {
         doctor_list.setAdapter(doctorAdapter);
 
         choice = String.valueOf( doctor_list.getSelectedItem());
-        // create an appointment
+
+        for(Doctor d: doctors){
+           if(d.getName().equals(choice)){
+               final_doctor =d;
+           }
+        }
+        FirebaseAccess.addAppointment(new Appointment(final_doctor,current_patient,apppointment_time));
+
+        final_book = (Button) findViewById(R.id.button2);
+        final_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFinalPage();
+            }
+        });
         // show successful or failed in next activity
 
+    }
+
+    public void openFinalPage(){
+        Intent intent = new Intent(this, BookingFinalPage.class);
+        startActivity(intent);
     }
 }

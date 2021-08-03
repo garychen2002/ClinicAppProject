@@ -50,6 +50,7 @@ public class PatientActivity extends AppCompatActivity {
 
     public void openBookAppointment(){
         Intent intent = new Intent(this, BookAppointmentActivity.class);
+        intent.putExtra("com.example.clinicappproject.CurrentPatient", currentPatient);
         startActivity(intent);
     }
 
