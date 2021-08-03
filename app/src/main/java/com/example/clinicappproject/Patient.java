@@ -1,13 +1,14 @@
 package com.example.clinicappproject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 public class Patient  extends User implements Serializable{
 
 
-    private LinkedHashSet<Doctor> prev_doctors;
+    private ArrayList<Doctor> prev_doctors;
 
     public Patient(){
     }
@@ -15,7 +16,7 @@ public class Patient  extends User implements Serializable{
     public Patient(String u, String p, String n, String g){
         super(u,p,n,g);
 
-        prev_doctors=new LinkedHashSet<Doctor>();
+        prev_doctors=new ArrayList<Doctor>();
 
     }
 
@@ -48,11 +49,11 @@ public class Patient  extends User implements Serializable{
         return "Name: " + name + "\nGender: " + gender;
     }
 
-    public LinkedHashSet<Doctor> getPrev_doctors() {
+    public ArrayList<Doctor> getPrev_doctors() {
         return prev_doctors;
     }
 
-    public void setPrev_doctors(LinkedHashSet<Doctor> prev_doctors) {
+    public void setPrev_doctors(ArrayList<Doctor> prev_doctors) {
         this.prev_doctors = prev_doctors;
     }
 }
