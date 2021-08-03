@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ChooseDoctor extends AppCompatActivity {
@@ -23,6 +22,7 @@ public class ChooseDoctor extends AppCompatActivity {
     long apppointment_time;
     Doctor final_doctor;
     Patient current_patient;
+    Appointment appointment;
 
 
     @Override
@@ -34,7 +34,7 @@ public class ChooseDoctor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_doctor);
 
-        doctor_list = (Spinner)findViewById(R.id.spinner);
+        doctor_list = (Spinner)findViewById(R.id.Doctor_List);
         apppointment_time = getIntent().getLongExtra("TIME",0);
 
         ArrayList<Doctor> doctors = (ArrayList<Doctor>) getIntent().getSerializableExtra("DOCTOR_LIST");
@@ -57,9 +57,10 @@ public class ChooseDoctor extends AppCompatActivity {
            }
         }
         current_patient.add_doctor(final_doctor);
-        FirebaseAccess.addAppointment(new Appointment(final_doctor,current_patient,apppointment_time));
+        appointment = new Appointment(final_doctor,current_patient,apppointment_time);
+        FirebaseAccess.addAppointment(appointment);
 
-        final_book = (Button) findViewById(R.id.button2);
+        final_book = (Button) findViewById(R.id.Book_Button);
         final_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +75,7 @@ public class ChooseDoctor extends AppCompatActivity {
 
     public void openFinalPage(){
         Intent intent = new Intent(this, BookingFinalPage.class);
+        intent.putExtra("APPOINTMENT", appointment);
         startActivity(intent);
     }
 

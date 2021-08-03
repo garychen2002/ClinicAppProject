@@ -7,13 +7,12 @@
     tools:context=".BookingFinalPage">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="193dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginLeft="144dp"
-        android:layout_marginTop="304dp"
-        android:text="@string/last_message"
+        android:id="@+id/final_message"
+        android:layout_width="362dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="256dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
