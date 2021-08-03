@@ -51,6 +51,14 @@ public class Appointment implements Serializable {
                 '}';
     }
 
+    public String booking_status(){
+        if (patient != null){
+            return "Booked";
+        }else{
+            return "Not Booked";
+        }
+    }
+
     public Doctor getDoctor() {
         return doctor;
     }

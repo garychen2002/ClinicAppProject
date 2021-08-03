@@ -45,7 +45,7 @@ public class Patient  extends User implements Serializable{
 
     @Override
     public String toString(){
-        return name + " " + gender;
+        return "Name: " + name + "\nGender: " + gender;
     }
 
 }
