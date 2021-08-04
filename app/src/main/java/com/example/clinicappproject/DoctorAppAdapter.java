@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DoctorAppAdapter extends RecyclerView.Adapter<DoctorAppAdapter.MyViewHolder> {
 
@@ -34,6 +35,7 @@ public class DoctorAppAdapter extends RecyclerView.Adapter<DoctorAppAdapter.MyVi
     public void onBindViewHolder(@NonNull DoctorAppAdapter.MyViewHolder holder, int position) {
         Appointment a = appointmentArrayList.get(position);
 
+        holder.bookingTime.setText(new Date(a.getTime()).toString());
         holder.bookingStatus.setText(a.booking_status());
         holder.patientInfo.setText(a.getPatientInfo());
         holder.preDoctor.setText(a.getPreDoctor());
@@ -46,11 +48,12 @@ public class DoctorAppAdapter extends RecyclerView.Adapter<DoctorAppAdapter.MyVi
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView bookingStatus, patientInfo, preDoctor;
+        TextView bookingTime, bookingStatus, patientInfo, preDoctor;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            bookingTime = itemView.findViewById(R.id.booking_time);
             bookingStatus = itemView.findViewById(R.id.booking_status);
             patientInfo = itemView.findViewById(R.id.p_info);
             preDoctor = itemView.findViewById(R.id.previous_doctor);
