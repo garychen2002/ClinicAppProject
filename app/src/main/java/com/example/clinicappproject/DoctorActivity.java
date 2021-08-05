@@ -19,7 +19,8 @@ public class DoctorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor);
 
         Intent intent = getIntent();
-        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
+//        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
+        currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
         Log.i("info", currentDoctor.toString());
 
         TextView d_n = findViewById(R.id.Name);

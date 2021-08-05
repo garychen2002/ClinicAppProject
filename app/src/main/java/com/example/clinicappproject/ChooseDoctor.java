@@ -29,8 +29,8 @@ public class ChooseDoctor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent intent = getIntent();
-        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
-
+//        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+        current_patient = UserSingleton.getInstance().getCurrentPatient();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_doctor);
 

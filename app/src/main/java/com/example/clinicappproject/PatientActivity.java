@@ -20,7 +20,8 @@ public class PatientActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        currentPatient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+        currentPatient = UserSingleton.getInstance().getCurrentPatient();
+//        currentPatient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
         Log.i("info", currentPatient.toString());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);

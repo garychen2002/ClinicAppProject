@@ -41,6 +41,7 @@ public class DoctorLoginTest extends AppCompatActivity implements Callback {
         }
         else {
             Intent intent = new Intent(this, DoctorActivity.class);
+            UserSingleton.getInstance().setCurrentDoctor(doctor);
             intent.putExtra("com.example.clinicappproject.CurrentDoctor", doctor);
             startActivity(intent);
         }

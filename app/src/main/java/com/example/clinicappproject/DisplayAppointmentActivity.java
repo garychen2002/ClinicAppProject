@@ -26,7 +26,8 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
         recyclerView = findViewById(R.id.rvAppointments);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
-        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
+        currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
+//        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
                Log.i("info", "help2");
 //        Patient p = new Patient("test3", "password3", "tester", "Male");
 //        GregorianCalendar g = new GregorianCalendar();

@@ -48,6 +48,7 @@ public class PatientLoginTest extends AppCompatActivity implements Callback {
         else {
             Intent intent = new Intent(this, PatientActivity.class);
             Log.i("info", patient.toString());
+            UserSingleton.getInstance().setCurrentPatient(patient);
             intent.putExtra("com.example.clinicappproject.CurrentPatient", patient);
             startActivity(intent);
         }

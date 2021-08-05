@@ -36,8 +36,8 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
     protected void onCreate(Bundle savedInstanceState) {
 
         Intent intent = getIntent();
-        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
-
+//        current_patient = (Patient) intent.getSerializableExtra("com.example.clinicappproject.CurrentPatient");
+        current_patient = UserSingleton.getInstance().getCurrentPatient();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
 
