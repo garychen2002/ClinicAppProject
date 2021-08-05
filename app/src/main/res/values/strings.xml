@@ -11,10 +11,10 @@
     <string name="d_appointment">Upcoming appointment</string>
     <string name="d_name">Doctor\'s name</string>
 
-    <string name="find_doctor">Find Available Doctor</string>
+    <string name="find_doctor">Find Doctor</string>
 
     <string name="choose_doctor">Available Doctors</string>
-    <string name="book_button">Book</string>
+    <string name="book_button">Show Available Time</string>
     <string name="patient_login_button">Patient</string>
     <string name="doctor_login_button">Doctor</string>
     <string name="welcome_login">Choose a login</string>
@@ -23,6 +23,9 @@
     <string name="password_hint">Password</string>
     <string name="doctor_login_title">Login as doctor</string>
     <string name="login_button">LOGIN</string>
+
+    <string name="choose_time">Choose Time for Your Appointment</string>
+
 
     <string-array name="departments">
         <item>Cardiology</item>

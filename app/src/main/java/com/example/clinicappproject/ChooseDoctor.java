@@ -18,11 +18,11 @@ public class ChooseDoctor extends AppCompatActivity {
     Spinner doctor_list;
     ArrayAdapter<String> doctorAdapter;
     String choice;
-    Button final_book;
-    long apppointment_time;
+    Button ShowTime;
+    //long apppointment_time;
     Doctor final_doctor;
     Patient current_patient;
-    Appointment appointment;
+    //Appointment appointment;
 
 
     @Override
@@ -35,7 +35,7 @@ public class ChooseDoctor extends AppCompatActivity {
         setContentView(R.layout.activity_choose_doctor);
 
         doctor_list = (Spinner)findViewById(R.id.Doctor_List);
-        apppointment_time = getIntent().getLongExtra("TIME",0);
+//        apppointment_time = getIntent().getLongExtra("TIME",0);
 
         ArrayList<Doctor> doctors = (ArrayList<Doctor>) getIntent().getSerializableExtra("DOCTOR_LIST");
 
@@ -57,14 +57,19 @@ public class ChooseDoctor extends AppCompatActivity {
            }
         }
         current_patient.add_doctor(final_doctor);
+
+
+        /*
         appointment = new Appointment(final_doctor,current_patient,apppointment_time);
         FirebaseAccess.addAppointment(appointment);
+*/
 
-        final_book = (Button) findViewById(R.id.Book_Button);
-        final_book.setOnClickListener(new View.OnClickListener() {
+
+        ShowTime = (Button) findViewById(R.id.Book_Button);
+        ShowTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFinalPage();
+                openChooseTimePage();
             }
         });
 
@@ -73,9 +78,12 @@ public class ChooseDoctor extends AppCompatActivity {
 
 
 
-    public void openFinalPage(){
-        Intent intent = new Intent(this, BookingFinalPage.class);
-        intent.putExtra("APPOINTMENT", appointment);
+    public void openChooseTimePage(){
+        Intent intent = new Intent(this, ChooseUpcomingWeekTime.class);
+ //       intent.putExtra("APPOINTMENT", appointment);
+
+        intent.putExtra("FINAL_DOCTOR", final_doctor);
+        intent.putExtra("com.example.clinicappproject.CurrentPatient", current_patient);
         startActivity(intent);
     }
 

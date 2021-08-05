@@ -107,7 +107,7 @@ public class FirebaseAccess {
     }
 
 
-    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list, long time, Callback callback)
+    static public void filter(String gender, String specialization, ArrayList<Doctor> doctor_list, Callback callback)
     {
         doctor_list.clear();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
@@ -123,7 +123,7 @@ public class FirebaseAccess {
                     }
 
                 }
-                FirebaseAccess.filter_time(doctor_list, time);
+                //FirebaseAccess.filter_time(doctor_list, time);
                 callback.openChooseDoctor(doctor_list);
 
             }

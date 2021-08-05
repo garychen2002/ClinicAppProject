@@ -21,7 +21,7 @@ import java.util.GregorianCalendar;
 
 public class BookAppointmentActivity extends AppCompatActivity implements Callback {
 
-    GregorianCalendar date;
+    //GregorianCalendar date;
     String gender;
     String spec;
     Button find_doctor;
@@ -62,6 +62,8 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
         Spinner sp2 = (Spinner) findViewById(R.id.doctor_gender);
         gender = String.valueOf(sp2.getSelectedItem());
 
+        /*
+
         Spinner sp3 = (Spinner) findViewById(R.id.timePicker);
         String time = String.valueOf(sp3.getSelectedItem());
         String[] parts = time.split(":");
@@ -69,9 +71,9 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
         DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
         date = new GregorianCalendar(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(),
                 Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
-
+*/
         doctors = new ArrayList<Doctor>();
-        FirebaseAccess.filter(gender, spec, doctors, date.getTimeInMillis(), this);
+        FirebaseAccess.filter(gender, spec, doctors,this);
 
 
     }
@@ -109,7 +111,7 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
         else {
             Intent intent = new Intent(this, ChooseDoctor.class);
             intent.putExtra("DOCTOR_LIST", doctors);
-            intent.putExtra("TIME", date.getTimeInMillis());
+            //intent.putExtra("TIME", date.getTimeInMillis());
             intent.putExtra("com.example.clinicappproject.CurrentPatient", current_patient);
             startActivity(intent);
         }
