@@ -32,7 +32,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DisplayAppointmentActivity"
-            android:parentActivityName=".DoctorActivity" />
+            android:parentActivityName=".DoctorActivity"></activity>
         <activity android:name=".BookAppointmentActivity" />
         <activity
             android:name=".DoctorLoginTest"
