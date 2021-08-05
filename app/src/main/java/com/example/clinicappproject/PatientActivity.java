@@ -14,7 +14,7 @@ public class PatientActivity extends AppCompatActivity {
 
     private Button button1;
     private Button button2;
-    //private Button button3;
+    private Button button3;
     private Patient currentPatient;
 
     @Override
@@ -42,6 +42,15 @@ public class PatientActivity extends AppCompatActivity {
                 openMyProfile();
             }
         });
+
+
+        button3 = (Button)findViewById(R.id.appointment);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMyAppointment();
+            }
+        });
 //        PatientCallback callback = new PatientCallback();
 //        Patient est = FirebaseAccess.patientLogin("test1", "password1", callback);
 //        Patient est2 = FirebaseAccess.patientLogin("test2", "password2", callback);
@@ -57,6 +66,12 @@ public class PatientActivity extends AppCompatActivity {
 
     public void openMyProfile(){
         Intent intent = new Intent(this, MyProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMyAppointment(){
+        Intent intent =new Intent(this, PatientActivity.class);
+        intent.putExtra("com.example.clinicappproject.CurrentPatient", currentPatient);
         startActivity(intent);
     }
 

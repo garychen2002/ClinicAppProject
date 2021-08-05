@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
         <activity
+            android:name=".PatientAppointment"
+            android:exported="true" />
+        <activity
             android:name=".BookingFinalPage"
             android:exported="true" />
         <activity
@@ -24,7 +27,7 @@
         <activity
             android:name=".PatientLoginTest"
             android:exported="true"
-            android:parentActivityName=".LoginChooseTestActivity"></activity>
+            android:parentActivityName=".LoginChooseTestActivity" />
         <activity android:name=".ChooseDoctor" />
         <activity android:name=".MyProfileActivity" />
         <activity
@@ -32,11 +35,11 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DisplayAppointmentActivity"
-            android:parentActivityName=".DoctorActivity"></activity>
+            android:parentActivityName=".DoctorActivity" />
         <activity android:name=".BookAppointmentActivity" />
         <activity
             android:name=".DoctorLoginTest"
-            android:parentActivityName=".LoginChooseTestActivity"></activity>
+            android:parentActivityName=".LoginChooseTestActivity" />
         <activity android:name=".PatientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
