@@ -8,14 +8,30 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="369dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="340dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="44dp"
         android:text="@string/choose_time"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <DatePicker
+        android:id="@+id/DatePicker"
+        android:layout_width="357dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="52dp"
+        android:background="#FBFAFB"
+        android:headerBackground="@color/purple_200"
+        android:padding="-40dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
