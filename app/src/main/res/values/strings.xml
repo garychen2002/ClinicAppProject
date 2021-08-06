@@ -8,7 +8,7 @@
 
     <string name="message">Welcome</string>
     <string name="d_info">Doctor\'s info</string>
-    <string name="d_appointment">Upcoming appointment</string>
+    <string name="d_appointment">My appointments</string>
     <string name="d_name">Doctor\'s name</string>
 
     <string name="find_doctor">Find Doctor</string>
@@ -23,7 +23,9 @@
     <string name="password_hint">Password</string>
     <string name="doctor_login_title">Login as doctor</string>
     <string name="login_button">LOGIN</string>
-
+    <string name="myAppointments">My appointments</string>
+    <string name="prevAppointments">Previous Appointments</string>
+    <string name="upcomingAppointments">Upcoming Appointments</string>
     <string name="choose_time">Choose Time for Your Appointment</string>
 
 

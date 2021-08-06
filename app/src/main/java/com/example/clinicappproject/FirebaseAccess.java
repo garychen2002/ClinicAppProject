@@ -142,25 +142,49 @@ public class FirebaseAccess {
 
 
 
-    static public void getAppointmentsByDoctor(Doctor doctor, Callback callback)
+    static public void getAppointmentsByDoctor(Doctor doctor, Callback callback, String displayType)
     {
         Log.i("info", "hhhhhhhhhhhhhhhh");
 
+        String type;
+        type = displayType;
+
+
+        Log.i("info", type);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Query userQuery = ref.child("appointments").orderByChild("doctor/username").equalTo(doctor.getUsername());
-        ArrayList<Appointment> appointmentArrayList = new ArrayList<Appointment>();
+        ArrayList<Appointment> prevAppointmentArrayList = new ArrayList<Appointment>();
+        ArrayList<Appointment> upcomingAppointmentArrayList = new ArrayList<Appointment>();
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.exists()) {
                     Log.i("info", "exists");
-                    appointmentArrayList.clear();
+                    prevAppointmentArrayList.clear();
+                    upcomingAppointmentArrayList.clear();
                     for (DataSnapshot user: snapshot.getChildren()) {
                         Appointment a = user.getValue(Appointment.class);
-                        appointmentArrayList.add(a);
+                        if (Long.compare(a.getTime(), System.currentTimeMillis()) < 0) {
+                            prevAppointmentArrayList.add(a);
+                        } else {
+                            upcomingAppointmentArrayList.add(a);
+                        }
                     }
-                    Log.i("info", appointmentArrayList.toString());
-                    callback.getDoctorAppointments(appointmentArrayList);
+                    Log.i("info", prevAppointmentArrayList.toString());
+                    Log.i("info", upcomingAppointmentArrayList.toString());
+
+
+
+                    if (type.equals("previous")) {
+                        callback.getDoctorAppointments(prevAppointmentArrayList);
+                        Log.i("info", "prevdoctcallback");
+                    } else if (type.equals("upcoming")) {
+                        callback.getDoctorAppointments(upcomingAppointmentArrayList);
+                    }
+
+
+
 
                 }
                 else

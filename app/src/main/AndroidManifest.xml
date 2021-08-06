@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
         <activity
+            android:name=".DisplayAppointmentOptions"
+            android:exported="true"
+            android:parentActivityName=".DoctorActivity"/>
+        <activity
             android:name=".ChooseUpcomingWeekTime"
             android:exported="true" />
         <activity
@@ -38,7 +42,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DisplayAppointmentActivity"
-            android:parentActivityName=".DoctorActivity" />
+            android:parentActivityName=".DisplayAppointmentOptions" />
         <activity android:name=".BookAppointmentActivity" />
         <activity
             android:name=".DoctorLoginTest"

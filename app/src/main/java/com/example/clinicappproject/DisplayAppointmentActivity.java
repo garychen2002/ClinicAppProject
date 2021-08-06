@@ -26,6 +26,7 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
         recyclerView = findViewById(R.id.rvAppointments);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
+        String displayType = intent.getStringExtra(DisplayAppointmentOptions.Message);
         currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
 //        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
                Log.i("info", "help2");
@@ -33,7 +34,7 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 //        GregorianCalendar g = new GregorianCalendar();
 //        Appointment a = new Appointment(currentDoctor, p, g);
 //        FirebaseAccess.addAppointment(a);
-        FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this);
+        FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this, displayType);
 
 //        ChangeListener();
     }
