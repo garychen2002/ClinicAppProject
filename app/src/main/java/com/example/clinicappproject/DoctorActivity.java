@@ -36,6 +36,10 @@ public class DoctorActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void openSchedule(View view){
+        Intent intent = new Intent(this, UpcomingSchedule.class);
+        intent.putExtra("com.example.clinicappproject.CurrentDoctor", currentDoctor);
+        startActivity(intent);
+    }
 
 }

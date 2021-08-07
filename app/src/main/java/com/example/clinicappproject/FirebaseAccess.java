@@ -103,6 +103,41 @@ public class FirebaseAccess {
 
 
 
+    static public void getScheduleByDoctor(Doctor doctor, Callback callback)
+    {
+        Log.i("info", "hhhhhhhhhhhhhhhh");
+
+//        Log.i("info", type);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query userQuery = ref.child("appointments").orderByChild("doctor/username").equalTo(doctor.getUsername());
+        ArrayList<Appointment> ScheduleArrayList = new ArrayList<Appointment>();
+        userQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Log.i("info", "exists");
+                    ScheduleArrayList.clear();
+                    for (DataSnapshot user: snapshot.getChildren()) {
+                        Appointment a = user.getValue(Appointment.class);
+                        ScheduleArrayList.add(a);
+                        if (Long.compare(a.getTime(), System.currentTimeMillis()) < 0) {
+                            ScheduleArrayList.add(a);
+                        }
+                    }
+                    Log.i("info", ScheduleArrayList.toString());
+                    callback.getDoctorAppointments(ScheduleArrayList);
+                }
+                else
+                    Log.i("info", "doesnt exists");
+            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w("warning", "loadPost:onCancelled", error.toException());
+
+                }
+            });
+    }
+
     static public void getAppointmentsByDoctor(Doctor doctor, Callback callback, String displayType)
     {
         Log.i("info", "hhhhhhhhhhhhhhhh");
@@ -153,12 +188,12 @@ public class FirebaseAccess {
 
 
             }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Log.w("warning", "loadPost:onCancelled", error.toException());
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("warning", "loadPost:onCancelled", error.toException());
 
-                }
-            });
+            }
+        });
 
 
     }

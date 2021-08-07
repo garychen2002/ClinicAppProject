@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScheduleDisplay">
+
+    <TextView
+        android:id="@+id/select_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <LinearLayout
+        android:layout_width="244dp"
+        android:layout_height="400dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="107dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="9:00 - 10:00" />
+
+            <TextView
+                android:id="@+id/time2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="10:00 - 11:00" />
+
+            <TextView
+                android:id="@+id/time3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="11:00 - 12:00" />
+
+            <TextView
+                android:id="@+id/time4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="12:00 - 1:00" />
+
+            <TextView
+                android:id="@+id/time5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="1:00 - 2:00" />
+
+            <TextView
+                android:id="@+id/time6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="2:00 - 3:00" />
+
+            <TextView
+                android:id="@+id/time7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="3:00 - 4:00" />
+
+            <TextView
+                android:id="@+id/time8"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="4:00 - 5:00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/schedule1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/schedule"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="TextView" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
