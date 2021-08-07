@@ -9,6 +9,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,9 +19,10 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
     Doctor final_doctor;
     Patient current_patient;
     Appointment appointment;
-    Spinner dateList;
     Spinner timeList;
-    ArrayAdapter<String> dateAdapter;
+    ArrayAdapter<Integer> timeAdapter;
+    ArrayList<Integer> time;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,33 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
         DatePicker dp = findViewById(R.id.DatePicker);
         upcomingWeek(dp);
 
+        timeList = (Spinner)findViewById(R.id.timePicker);
+
+        time=new ArrayList<Integer>();
+        for(int i =0; i<9;i++){
+            if(i!=3) {
+                time.add(i + 9);
+            }
+        }
+        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),9,0),
+                new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),17,0));
+
+        timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
+
+        timeList.setAdapter(timeAdapter);
+
+        GregorianCalendar ap_time = new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),Integer.valueOf((Integer) timeList.getSelectedItem()),0);
+        appointment = new Appointment(final_doctor,current_patient,ap_time);
+
+
+
 
     }
 
 
+    public void getAvailableTime(){
 
+    }
 
 
     public void upcomingWeek(DatePicker dp){
@@ -48,7 +72,6 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
         dp.setMinDate(current.getTimeInMillis());
         current.add(GregorianCalendar.DATE,6);
         dp.setMaxDate(current.getTimeInMillis());
-
 
     }
 }

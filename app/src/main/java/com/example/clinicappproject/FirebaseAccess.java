@@ -14,6 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class FirebaseAccess {
 
@@ -39,17 +41,19 @@ public class FirebaseAccess {
     }
 
 
-    static public void filter_time(ArrayList<Doctor> doctor_list, long time){
+    static public void filter_time(Doctor doctor, ArrayList<Integer>timeList, GregorianCalendar date1, GregorianCalendar date2){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Query timeQuery = ref.child("appointments").orderByChild("time").equalTo(time);
-        timeQuery.addValueEventListener(new ValueEventListener() {
+        Query doctorQuery = ref.child("appointments").orderByChild("doctor/username").equalTo(doctor.getUsername());
+        doctorQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!doctor_list.isEmpty()&&snapshot.exists()){
+                if(snapshot.exists()){
                     for(DataSnapshot data: snapshot.getChildren()){
                         Appointment a = data.getValue(Appointment.class);
-                        if(doctor_list.contains(a.getDoctor())){
-                            doctor_list.remove(a.getDoctor());
+                        if(a.getTime()<=date2.getTimeInMillis() && a.getTime()>= date1.getTimeInMillis()){
+                            GregorianCalendar d =new GregorianCalendar();
+                            d.setTimeInMillis(a.getTime());
+                            timeList.remove(d.HOUR);
                         }
                     }
                 }
