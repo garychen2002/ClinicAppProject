@@ -50,7 +50,7 @@ public class FirebaseAccess {
                 if(snapshot.exists()){
                     for(DataSnapshot data: snapshot.getChildren()){
                         Appointment a = data.getValue(Appointment.class);
-                        if(a.getTime()<=date2.getTimeInMillis() && a.getTime()>= date1.getTimeInMillis()){
+                        if(a.getTime()<=date2.getTimeInMillis()&& a.getTime()>= date1.getTimeInMillis()){
                             GregorianCalendar d =new GregorianCalendar();
                             d.setTimeInMillis(a.getTime());
                             timeList.remove(d.HOUR);
@@ -120,9 +120,6 @@ public class FirebaseAccess {
                     for (DataSnapshot user: snapshot.getChildren()) {
                         Appointment a = user.getValue(Appointment.class);
                         ScheduleArrayList.add(a);
-                        if (Long.compare(a.getTime(), System.currentTimeMillis()) < 0) {
-                            ScheduleArrayList.add(a);
-                        }
                     }
                     Log.i("info", ScheduleArrayList.toString());
                     callback.getDoctorAppointments(ScheduleArrayList);

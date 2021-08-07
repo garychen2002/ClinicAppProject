@@ -25,6 +25,9 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
     ArrayAdapter<Integer> timeAdapter;
     ArrayList<Integer> time;
 
+    Button ShowTime;
+    Button BookApp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,38 +41,51 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
         DatePicker dp = findViewById(R.id.DatePicker);
         upcomingWeek(dp);
-
         timeList = (Spinner)findViewById(R.id.timePicker);
-
-        setAvailableTime(time);
-
-        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),9,0),
-                new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),17,0));
-
-        timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
-
-        timeList.setAdapter(timeAdapter);
-
-        GregorianCalendar ap_time = new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),Integer.valueOf((Integer) timeList.getSelectedItem()),0);
-        appointment = new Appointment(final_doctor,current_patient,ap_time);
-        FirebaseAccess.addAppointment(appointment);
+        BookApp= (Button)findViewById(R.id.BOOK);
+        ShowTime = (Button)findViewById(R.id.ShowTime_button);
 
 
-        Button button= (Button)findViewById(R.id.BOOK);
-        button.setOnClickListener(new View.OnClickListener() {
+        ShowTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFinalPage();
+                setAvailableTime();
+                FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),9,0),
+                        new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),17,0));
+
+                timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
+
+                timeList.setAdapter(timeAdapter);
+
+                GregorianCalendar ap_time = new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),(Integer) timeList.getSelectedItem(),0);
+                appointment = new Appointment(final_doctor,current_patient,ap_time);
+                FirebaseAccess.addAppointment(appointment);
+            }
+
+        });
+
+        BookApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(appointment!=null){
+                    openFinalPage();
+                }
+
             }
         });
+
+
+
+
+
+
     }
 
-
-    public void setAvailableTime(ArrayList<Integer> l){
-        l = new ArrayList<Integer>();
-        for(int i =0; i<9;i++){
+    public void setAvailableTime(){
+        time = new ArrayList<Integer>();
+        for(int i =0; i<9; i++){
             if(i!=3) {
-                l.add(i + 9);
+                time.add(i + 9);
             }
         }
     }
