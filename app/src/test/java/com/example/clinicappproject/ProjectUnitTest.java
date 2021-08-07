@@ -74,6 +74,47 @@ public class ProjectUnitTest {
     }
 
     @Test
+    public void testCorrectDoctor() {
+        when(doctorView.getUsername()).thenReturn("test1");
+        when(doctorView.getPassword()).thenReturn("password1");
+        Doctor testDoctor = new Doctor();
+        testDoctor.setUsername("test1");
+        testDoctor.setPassword("password1");
+        Presenter presenter = new Presenter(model, doctorView);
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                ((Presenter) invocation.getArguments()[0]).onSuccess(testDoctor);
+                return null;
+            }
+        }).when(model).doctorLogin(presenter, "test1", "password1");
+        presenter.checkDoctorCredentials();
+        verify(doctorView).onLoginSuccess(testDoctor);
+
+
+    }
+
+    @Test
+    public void testIncorrectDoctor() {
+        when(doctorView.getUsername()).thenReturn("test1");
+        when(doctorView.getPassword()).thenReturn("wrongpassword");
+        Doctor testDoctor = new Doctor();
+        testDoctor.setUsername("test1");
+        testDoctor.setPassword("wrongpassword");
+        Presenter presenter = new Presenter(model, doctorView);
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                ((Presenter) invocation.getArguments()[0]).onSuccess(testDoctor);
+                return null;
+            }
+        }).when(model).doctorLogin(presenter, "test1", "wrongpassword");
+        presenter.checkDoctorCredentials();
+        verify(doctorView).onLoginSuccess(testDoctor);
+
+    }
+
+    @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
