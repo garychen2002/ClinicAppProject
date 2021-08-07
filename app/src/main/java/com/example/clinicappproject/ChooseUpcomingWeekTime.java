@@ -24,7 +24,7 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
     Spinner timeList;
     ArrayAdapter<Integer> timeAdapter;
     ArrayList<Integer> time;
-
+    DatePicker dp;
     Button ShowTime;
     Button BookApp;
 
@@ -39,8 +39,8 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_upcoming_week_time);
 
-        DatePicker dp = findViewById(R.id.DatePicker);
-        upcomingWeek(dp);
+        dp = findViewById(R.id.DatePicker);
+        upcomingWeek();
         timeList = (Spinner)findViewById(R.id.timePicker);
         BookApp= (Button)findViewById(R.id.BOOK);
         ShowTime = (Button)findViewById(R.id.ShowTime_button);
@@ -91,7 +91,7 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
     }
 
 
-    public void upcomingWeek(DatePicker dp){
+    public void upcomingWeek(){
         GregorianCalendar current = new GregorianCalendar();
         current.add(GregorianCalendar.DATE,1);
         dp.setMinDate(current.getTimeInMillis());
