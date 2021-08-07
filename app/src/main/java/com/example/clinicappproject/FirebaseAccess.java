@@ -50,7 +50,7 @@ public class FirebaseAccess {
                 if(snapshot.exists()){
                     for(DataSnapshot data: snapshot.getChildren()){
                         Appointment a = data.getValue(Appointment.class);
-                        if(a.getTime()<=date2.getTimeInMillis() && a.getTime()>= date1.getTimeInMillis()){
+                        if(a.getTime()<=date2.getTimeInMillis()&& a.getTime()>= date1.getTimeInMillis()){
                             GregorianCalendar d =new GregorianCalendar();
                             d.setTimeInMillis(a.getTime());
                             timeList.remove(d.HOUR);
