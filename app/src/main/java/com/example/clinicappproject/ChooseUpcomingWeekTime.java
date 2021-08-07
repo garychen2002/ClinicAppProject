@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 
@@ -39,12 +41,8 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
         timeList = (Spinner)findViewById(R.id.timePicker);
 
-        time=new ArrayList<Integer>();
-        for(int i =0; i<9;i++){
-            if(i!=3) {
-                time.add(i + 9);
-            }
-        }
+        setAvailableTime(time);
+
         FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),9,0),
                 new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),17,0));
 
@@ -54,15 +52,26 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
         GregorianCalendar ap_time = new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),Integer.valueOf((Integer) timeList.getSelectedItem()),0);
         appointment = new Appointment(final_doctor,current_patient,ap_time);
+        FirebaseAccess.addAppointment(appointment);
 
 
-
-
+        Button button= (Button)findViewById(R.id.BOOK);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFinalPage();
+            }
+        });
     }
 
 
-    public void getAvailableTime(){
-
+    public void setAvailableTime(ArrayList<Integer> l){
+        l = new ArrayList<Integer>();
+        for(int i =0; i<9;i++){
+            if(i!=3) {
+                l.add(i + 9);
+            }
+        }
     }
 
 
@@ -73,5 +82,11 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
         current.add(GregorianCalendar.DATE,6);
         dp.setMaxDate(current.getTimeInMillis());
 
+    }
+
+    public void openFinalPage(){
+        Intent intent = new Intent(this, BookingFinalPage.class);
+        intent.putExtra("APPOINTMENT", appointment);
+        startActivity(intent);
     }
 }

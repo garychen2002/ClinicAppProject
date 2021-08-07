@@ -42,22 +42,6 @@
         <item>Female</item>
     </string-array>
 
-    <string-array name="time_picker">
-        <item>10:00</item>
-        <item>10:30</item>
-        <item>11:00</item>
-        <item>11:30</item>
-        <item>12:00</item>
-        <item>12:30</item>
-        <item>13:00</item>
-        <item>13:30</item>
-        <item>14:00</item>
-        <item>14:30</item>
-        <item>15:00</item>
-        <item>15:30</item>
-        <item>16:00</item>
-
-    </string-array>
     <string name="d_AllAppointment">List of upcoming Appointment</string>
     <string name="booking_status">Booking Status</string>
     <string name="p_info">Patient\'s info</string>

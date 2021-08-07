@@ -10,7 +10,7 @@
         android:id="@+id/textView3"
         android:layout_width="340dp"
         android:layout_height="32dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:text="@string/choose_time"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -27,8 +27,8 @@
         android:background="#FBFAFB"
         android:headerBackground="@color/purple_200"
         android:padding="-40dp"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,20 +37,20 @@
         android:id="@+id/timePicker"
         android:layout_width="250dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="148dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/BOOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginBottom="48dp"
-        android:text="Button"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="56dp"
+        android:text="@string/book_appointment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
