@@ -79,15 +79,6 @@ public class BookAppointmentActivity extends AppCompatActivity implements Callba
     }
 
 
-    @Override
-    public void doctorLogin(Doctor doctor) {
-
-    }
-
-    @Override
-    public void patientLogin(Patient patient) {
-
-    }
 
     @Override
     public void createAppointment(boolean success) {

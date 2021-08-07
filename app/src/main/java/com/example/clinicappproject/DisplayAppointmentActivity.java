@@ -43,17 +43,6 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
 //    //  need implementation still
 //    }
 
-
-    @Override
-    public void doctorLogin(Doctor doctor) {
-
-    }
-
-    @Override
-    public void patientLogin(Patient patient) {
-
-    }
-
     @Override
     public void createAppointment(boolean success) {
 
