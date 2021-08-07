@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MyProfileActivity">
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="90dp"
+        android:layout_height="35dp"
+        android:text="My Profile "
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="92dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
