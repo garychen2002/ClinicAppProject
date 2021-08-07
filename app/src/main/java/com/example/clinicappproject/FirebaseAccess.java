@@ -120,9 +120,6 @@ public class FirebaseAccess {
                     for (DataSnapshot user: snapshot.getChildren()) {
                         Appointment a = user.getValue(Appointment.class);
                         ScheduleArrayList.add(a);
-                        if (Long.compare(a.getTime(), System.currentTimeMillis()) < 0) {
-                            ScheduleArrayList.add(a);
-                        }
                     }
                     Log.i("info", ScheduleArrayList.toString());
                     callback.getDoctorAppointments(ScheduleArrayList);

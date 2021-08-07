@@ -28,7 +28,7 @@ public class UpcomingSchedule extends AppCompatActivity{
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                String date = year + "/" + month + "/" + dayOfMonth;
+                String date = year + "/" + (month+1) + "/" + dayOfMonth;
                 Intent intent1 = new Intent(UpcomingSchedule.this, ScheduleDisplay.class);
                 intent1.putExtra(EXTRA_MESSAGE, date);
                 intent1.putExtra("com.example.clinicappproject.CurrentDoctor", currentDoctor);
