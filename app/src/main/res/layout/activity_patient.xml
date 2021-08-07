@@ -10,10 +10,12 @@
         android:id="@+id/book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
-        android:layout_marginBottom="448dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="456dp"
         android:text="@string/book_appointment"
+        android:textColor="#212121"
+        android:textSize="16sp"
         app:backgroundTint="#978F8F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -22,27 +24,29 @@
         android:id="@+id/appointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Appointments"
+        android:text="@string/myAppointments"
+        android:textColor="#212121"
         app:backgroundTint="#978F8F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toEndOf="@+id/profile"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <Button
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
         android:text="@string/my_profile"
+        android:textColor="#212121"
         app:backgroundTint="#978F8F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <TextView
         android:id="@+id/textView"
@@ -57,4 +61,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="textView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
