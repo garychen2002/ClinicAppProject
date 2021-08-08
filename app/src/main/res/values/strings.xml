@@ -5,6 +5,8 @@
 
     <string name="book_appointment">Book Appointment</string>
     <string name="my_appointment">My Appointment</string>
+    <string name="doctor_department">Department</string>
+    <string name="doctor_gender">Doctor Gender</string>
 
     <string name="message">Welcome</string>
     <string name="d_info">Doctor\'s info</string>
