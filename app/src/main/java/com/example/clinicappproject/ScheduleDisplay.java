@@ -37,7 +37,7 @@ public class ScheduleDisplay extends AppCompatActivity implements Callback{
         if (list != null) {
             appointments = list;
             for (Appointment a : appointments){
-                time.add(a.getDate());
+                time.add(a.getDateAndTime());
             }
 
 
