@@ -9,6 +9,32 @@
 
 
     <TextView
+        android:id="@+id/textView13"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="128dp"
+        android:text="@string/doctor_department"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="213dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="284dp"
+        android:text="@string/doctor_gender"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="261dp"
         android:layout_height="49dp"
