@@ -40,7 +40,7 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
         ShowTime = (Button)findViewById(R.id.ShowTimePicker);
 
-        date =new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth());
+        //date =new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth());
         ShowTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +66,9 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
     }
 
     public void openChooseSpecificTimePage(){
+
+        date =new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth());
+
         Intent intent = new Intent(this, ChooseSpecificTime.class);
         intent.putExtra("DATE", date);
         intent.putExtra("FINAL_DOCTOR", final_doctor);

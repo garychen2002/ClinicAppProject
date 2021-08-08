@@ -46,9 +46,9 @@ public class ChooseSpecificTime extends AppCompatActivity {
         timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
 
         timeList.setAdapter(timeAdapter);
-        GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),(Integer) timeList.getSelectedItem(),0);
-        appointment = new Appointment(final_doctor,current_patient,ap_time);
-        FirebaseAccess.addAppointment(appointment);
+        //GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),(Integer) timeList.getSelectedItem(),0);
+       // appointment = new Appointment(final_doctor,current_patient,ap_time);
+        //FirebaseAccess.addAppointment(appointment);
 
 
         Book.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +80,11 @@ public class ChooseSpecificTime extends AppCompatActivity {
 
 
     public void openFinalPage(){
+
+        GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),(Integer) timeList.getSelectedItem(),0);
+        appointment = new Appointment(final_doctor,current_patient,ap_time);
+        FirebaseAccess.addAppointment(appointment);
+        
         Intent intent = new Intent(this, BookingFinalPage.class);
 
         intent.putExtra("APPOINTMENT", appointment);
