@@ -39,7 +39,7 @@ public class ChooseSpecificTime extends AppCompatActivity {
 
         setAvailableTime();
         FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,9,0),
-                new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,17,0));
+                new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,16,0));
         timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
 
         timeList.setAdapter(timeAdapter);
@@ -67,7 +67,7 @@ public class ChooseSpecificTime extends AppCompatActivity {
     public void setAvailableTime(){
         time = new ArrayList<Integer>();
         int i=0;
-        while(i!=9){
+        while(i!=8){
             if(i!=3){
                 time.add(i+9);
             }
