@@ -50,6 +50,6 @@
     <string name="booking_time">time</string>
     <string name="doctor_schedule">My Schedule</string>
     <string name="choose_date">Choose Date</string>
-    <string name="showTime">Show Timee</string>
+    <string name="showTime">Show Time</string>
 
 </resources>

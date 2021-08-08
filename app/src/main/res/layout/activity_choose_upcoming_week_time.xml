@@ -10,7 +10,7 @@
         android:id="@+id/textView3"
         android:layout_width="340dp"
         android:layout_height="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         android:text="@string/choose_time"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -23,45 +23,24 @@
         android:id="@+id/DatePicker"
         android:layout_width="357dp"
         android:layout_height="430dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="128dp"
         android:background="#FBFAFB"
         android:headerBackground="@color/purple_200"
         android:padding="-40dp"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/timePicker"
-        android:layout_width="250dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="152dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/BOOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginBottom="52dp"
-        android:text="@string/book_appointment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ShowTimePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginRight="144dp"
+        android:layout_marginBottom="76dp"
         android:text="@string/showTime"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

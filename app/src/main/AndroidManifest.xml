@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
         <activity
+            android:name=".ChooseSpecificTime"
+            android:exported="true" />
+        <activity
             android:name=".ScheduleDisplay"
             android:exported="true" />
         <activity

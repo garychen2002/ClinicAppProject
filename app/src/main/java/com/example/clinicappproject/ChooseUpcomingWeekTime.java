@@ -20,14 +20,10 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
     Doctor final_doctor;
     Patient current_patient;
-    Appointment appointment;
-    Spinner timeList;
-    ArrayAdapter<Integer> timeAdapter;
-    ArrayList<Integer> time;
+
     DatePicker dp;
     Button ShowTime;
-    Button BookApp;
-
+    GregorianCalendar date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,54 +37,23 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
         dp = findViewById(R.id.DatePicker);
         upcomingWeek();
-        timeList = (Spinner)findViewById(R.id.timePicker);
-        BookApp= (Button)findViewById(R.id.BOOK);
-        ShowTime = (Button)findViewById(R.id.ShowTime_button);
 
+        ShowTime = (Button)findViewById(R.id.ShowTimePicker);
 
+        date =new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth());
         ShowTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setAvailableTime();
-                FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),9,0),
-                        new GregorianCalendar(dp.getYear(),dp.getMonth(), dp.getDayOfMonth(),17,0));
 
-                timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
+                openChooseSpecificTimePage();
 
-                timeList.setAdapter(timeAdapter);
-
-                GregorianCalendar ap_time = new GregorianCalendar(dp.getYear(),dp.getMonth(),dp.getDayOfMonth(),(Integer) timeList.getSelectedItem(),0);
-                appointment = new Appointment(final_doctor,current_patient,ap_time);
-                FirebaseAccess.addAppointment(appointment);
             }
 
         });
 
-        BookApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(appointment!=null){
-                    openFinalPage();
-                }
-
-            }
-        });
-
-
-
-
-
 
     }
 
-    public void setAvailableTime(){
-        time = new ArrayList<Integer>();
-        for(int i =0; i<9; i++){
-            if(i!=3) {
-                time.add(i + 9);
-            }
-        }
-    }
 
 
     public void upcomingWeek(){
@@ -100,9 +65,10 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
 
     }
 
-    public void openFinalPage(){
-        Intent intent = new Intent(this, BookingFinalPage.class);
-        intent.putExtra("APPOINTMENT", appointment);
+    public void openChooseSpecificTimePage(){
+        Intent intent = new Intent(this, ChooseSpecificTime.class);
+        intent.putExtra("DATE", date);
+        intent.putExtra("FINAL_DOCTOR", final_doctor);
         startActivity(intent);
     }
 }
