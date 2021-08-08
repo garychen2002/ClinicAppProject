@@ -1,5 +1,7 @@
 package com.example.clinicappproject;
 
+import static android.Manifest.permission_group.CALENDAR;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class ChooseSpecificTime extends AppCompatActivity {
@@ -38,12 +41,12 @@ public class ChooseSpecificTime extends AppCompatActivity {
 
 
         setAvailableTime();
-        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,9,0),
-                new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,16,0));
+        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),9,0),
+                new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),16,0));
         timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
 
         timeList.setAdapter(timeAdapter);
-        GregorianCalendar ap_time = new GregorianCalendar(date.YEAR,date.MONTH, date.HOUR,(Integer) timeList.getSelectedItem(),0);
+        GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),(Integer) timeList.getSelectedItem(),0);
         appointment = new Appointment(final_doctor,current_patient,ap_time);
         FirebaseAccess.addAppointment(appointment);
 
