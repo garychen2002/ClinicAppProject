@@ -41,8 +41,8 @@ public class ChooseSpecificTime extends AppCompatActivity {
 
 
         setAvailableTime();
-        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),9,0),
-                new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),16,0));
+        FirebaseAccess.filter_time(final_doctor,time,new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH),9,0),
+                new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH),16,0));
         timeAdapter = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, time);
 
         timeList.setAdapter(timeAdapter);
@@ -81,7 +81,7 @@ public class ChooseSpecificTime extends AppCompatActivity {
 
     public void openFinalPage(){
 
-        GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.HOUR),(Integer) timeList.getSelectedItem(),0);
+        GregorianCalendar ap_time = new GregorianCalendar(date.get(Calendar.YEAR),date.get(Calendar.MONTH), date.get(Calendar.DAY_OF_MONTH),(Integer) timeList.getSelectedItem(),0);
         appointment = new Appointment(final_doctor,current_patient,ap_time);
         FirebaseAccess.addAppointment(appointment);
         

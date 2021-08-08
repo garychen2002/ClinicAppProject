@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/final_message"
-        android:layout_width="392dp"
-        android:layout_height="338dp"
-        android:layout_marginBottom="108dp"
+        android:layout_width="364dp"
+        android:layout_height="284dp"
+        android:layout_marginBottom="92dp"
         android:textColor="#0B0A0A"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
