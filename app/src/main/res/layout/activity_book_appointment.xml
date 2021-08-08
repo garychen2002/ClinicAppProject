@@ -7,28 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".BookAppointmentActivity">
 
+
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="213dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="261dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="68dp"
         android:text="@string/book_appointment"
-        android:textSize="24sp"
+        android:textColor="#100000"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Spinner
         android:id="@+id/department"
         android:layout_width="228dp"
         android:layout_height="53dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="84dp"
         android:entries="@array/departments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -36,10 +37,9 @@
         android:id="@+id/doctor_gender"
         android:layout_width="206dp"
         android:layout_height="62dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
         android:layout_marginTop="108dp"
         android:entries="@array/doctor_gender"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/department" />
 
@@ -47,11 +47,11 @@
         android:id="@+id/find_doctor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginLeft="124dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="88dp"
         android:text="@string/find_doctor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctor_gender" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
