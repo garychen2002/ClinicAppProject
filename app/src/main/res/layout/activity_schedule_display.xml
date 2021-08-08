@@ -88,49 +88,49 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/schedule1"
+                android:id="@+id/schedule9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule2"
+                android:id="@+id/schedule10"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule3"
+                android:id="@+id/schedule11"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule4"
+                android:id="@+id/schedule12"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule5"
+                android:id="@+id/schedule13"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule6"
+                android:id="@+id/schedule14"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule7"
+                android:id="@+id/schedule15"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/schedule"
+                android:id="@+id/schedule16"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="TextView" />

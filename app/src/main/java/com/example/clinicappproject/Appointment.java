@@ -79,12 +79,12 @@ public class Appointment implements Serializable {
         return time;
     }
 
-//    public String getDate() {
-//        Date date = new Date(time);
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//        String formattedTime = format.format(date);
-//        return formattedTime;
-//    }
+    public String getDate() {
+        Date date = new Date(time);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd/hh/mm");
+        String formattedTime = format.format(date);
+        return formattedTime;
+    }
 
     public void setTime(long time) {
         this.time = time;
