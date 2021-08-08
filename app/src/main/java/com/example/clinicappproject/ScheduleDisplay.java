@@ -18,12 +18,11 @@ public class ScheduleDisplay extends AppCompatActivity implements Callback{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_display);
-        TextView textView = findViewById(R.id.select_date);
-        textView.setText(date);
         Intent intent = getIntent();
         currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
         date = intent.getStringExtra(UpcomingSchedule.EXTRA_MESSAGE);
-
+        TextView textView = findViewById(R.id.select_date);
+        textView.setText(date);
         FirebaseAccess.getScheduleByDoctor(currentDoctor, this);
     }
 
