@@ -13,7 +13,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class DisplayAppointmentActivity extends AppCompatActivity implements Callback {
-    ArrayList<Appointment> appointments;
+    ArrayList<Appointment> appointments = new ArrayList<Appointment>();
     Doctor currentDoctor;
     DoctorAppAdapter dAdapter;
     RecyclerView recyclerView;
@@ -56,7 +56,6 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
             dAdapter = new DoctorAppAdapter(DisplayAppointmentActivity.this, appointments);
             recyclerView.setAdapter(dAdapter);
         }
-
     }
 
     @Override
