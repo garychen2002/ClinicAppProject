@@ -53,7 +53,7 @@ public class FirebaseAccess {
                         if(a.getTime()<=date2.getTimeInMillis()&& a.getTime()>= date1.getTimeInMillis()){
                             GregorianCalendar d =new GregorianCalendar();
                             d.setTimeInMillis(a.getTime());
-                            timeList.remove(d.HOUR);
+                            timeList.remove(new Integer(d.HOUR));
                         }
                     }
                 }

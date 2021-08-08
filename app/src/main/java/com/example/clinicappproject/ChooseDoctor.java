@@ -49,16 +49,6 @@ public class ChooseDoctor extends AppCompatActivity {
 
         doctor_list.setAdapter(doctorAdapter);
 
-        choice = String.valueOf( doctor_list.getSelectedItem());
-
-        for(Doctor d: doctors){
-           if(d.getName().equals(choice)){
-               final_doctor =d;
-           }
-        }
-        current_patient.add_doctor(final_doctor);
-
-
         /*
         appointment = new Appointment(final_doctor,current_patient,apppointment_time);
         FirebaseAccess.addAppointment(appointment);
@@ -81,6 +71,17 @@ public class ChooseDoctor extends AppCompatActivity {
     public void openChooseTimePage(){
         Intent intent = new Intent(this, ChooseUpcomingWeekTime.class);
  //       intent.putExtra("APPOINTMENT", appointment);
+
+        choice = String.valueOf( doctor_list.getSelectedItem());
+        ArrayList<Doctor> doctors = (ArrayList<Doctor>) getIntent().getSerializableExtra("DOCTOR_LIST");
+
+        for(Doctor d: doctors){
+            if(d.getName().equals(choice)){
+                final_doctor =d;
+            }
+        }
+        current_patient.add_doctor(final_doctor);
+
 
         intent.putExtra("FINAL_DOCTOR", final_doctor);
         intent.putExtra("com.example.clinicappproject.CurrentPatient", current_patient);
