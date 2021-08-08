@@ -35,7 +35,7 @@ public class ChooseUpcomingWeekTime extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_upcoming_week_time);
 
-        dp = findViewById(R.id.DatePicker);
+        dp =(DatePicker) findViewById(R.id.DatePicker);
         upcomingWeek();
 
         ShowTime = (Button)findViewById(R.id.ShowTimePicker);
