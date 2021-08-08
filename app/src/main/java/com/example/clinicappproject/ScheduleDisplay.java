@@ -23,8 +23,8 @@ public class ScheduleDisplay extends AppCompatActivity implements Callback{
         date = intent.getStringExtra(UpcomingSchedule.EXTRA_MESSAGE);
         TextView textView = findViewById(R.id.select_date);
         textView.setText(date);
-//        FirebaseAccess.getScheduleByDoctor(currentDoctor, this);
-        FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this, "upcoming");
+        FirebaseAccess.getScheduleByDoctor(currentDoctor, this);
+//        FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this, "upcoming");
     }
 
     @Override
@@ -39,7 +39,6 @@ public class ScheduleDisplay extends AppCompatActivity implements Callback{
             for (Appointment a : appointments){
                 time.add(a.getScheduleTime());
             }
-
 
             if (time.contains(date + "/" + "09" + "/" + "00")){
                 TextView textView1 = findViewById(R.id.schedule9);
