@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class DisplayAppointmentActivity extends AppCompatActivity implements Callback {
     ArrayList<Appointment> appointments = new ArrayList<Appointment>();
     Doctor currentDoctor;
+    Patient currentPatient;
     DoctorAppAdapter dAdapter;
     RecyclerView recyclerView;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -26,15 +27,23 @@ public class DisplayAppointmentActivity extends AppCompatActivity implements Cal
         recyclerView = findViewById(R.id.rvAppointments);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
-        String displayType = intent.getStringExtra(DisplayAppointmentOptions.Message);
-        currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
+        String displayType = intent.getStringExtra(DisplayDoctorAppointmentOptions.Message);
+
+        if (displayType.equals("prevPatient") || displayType.equals("upcomingPatient")){
+            currentPatient = UserSingleton.getInstance().getCurrentPatient();
+            FirebaseAccess.getAppointmentsByPatient(currentPatient, this, displayType);
+        }
+
+        if (displayType.equals("prevDoctor") || displayType.equals("upcomingDoctor")){
+            currentDoctor = UserSingleton.getInstance().getCurrentDoctor();
+            FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this, displayType);
+        }
 //        currentDoctor = (Doctor) intent.getSerializableExtra("com.example.clinicappproject.CurrentDoctor");
                Log.i("info", "help2");
 //        Patient p = new Patient("test3", "password3", "tester", "Male");
 //        GregorianCalendar g = new GregorianCalendar();
 //        Appointment a = new Appointment(currentDoctor, p, g);
 //        FirebaseAccess.addAppointment(a);
-        FirebaseAccess.getAppointmentsByDoctor(currentDoctor, this, displayType);
 
 //        ChangeListener();
     }

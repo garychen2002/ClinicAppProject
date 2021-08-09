@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ClinicAppProject">
         <activity
+            android:name=".DisplayPatientAppointmentOptions"
+            android:parentActivityName=".PatientActivity"/>
+        <activity
             android:name=".ChooseSpecificTime"
             android:exported="true" />
         <activity
@@ -19,7 +22,7 @@
             android:name=".UpcomingSchedule"
             android:exported="true" />
         <activity
-            android:name=".DisplayAppointmentOptions"
+            android:name=".DisplayDoctorAppointmentOptions"
             android:exported="true"
             android:parentActivityName=".DoctorActivity" />
         <activity
@@ -51,7 +54,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DisplayAppointmentActivity"
-            android:parentActivityName=".DisplayAppointmentOptions" />
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".BookAppointmentActivity" />
         <activity
             android:name=".DoctorLoginTest"

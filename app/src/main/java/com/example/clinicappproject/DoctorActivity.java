@@ -31,7 +31,7 @@ public class DoctorActivity extends AppCompatActivity {
     }
     
     public void openUpcomingAppointment(View view){
-        Intent intent = new Intent(this, DisplayAppointmentOptions.class);
+        Intent intent = new Intent(this, DisplayDoctorAppointmentOptions.class);
         intent.putExtra("com.example.clinicappproject.CurrentDoctor", currentDoctor);
         startActivity(intent);
     }

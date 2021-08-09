@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class DisplayAppointmentOptions extends AppCompatActivity {
+public class DisplayDoctorAppointmentOptions extends AppCompatActivity {
 
     public static final String Message = "DisplayType";
 
@@ -16,15 +16,16 @@ public class DisplayAppointmentOptions extends AppCompatActivity {
         setContentView(R.layout.activity_display_appointment_options);
     }
 
-    public void prevAppointments(View view){
+
+    public void prevDoctorAppointments(View view){
         Intent intent = new Intent(this, DisplayAppointmentActivity.class);
-        intent.putExtra(Message, "previous");
+        intent.putExtra(Message, "prevDoctor");
         startActivity(intent);
     }
 
-    public void upcomingAppointments(View view){
+    public void upcomingDoctorAppointments(View view){
         Intent intent = new Intent(this, DisplayAppointmentActivity.class);
-        intent.putExtra(Message, "upcoming");
+        intent.putExtra(Message, "upcomingDoctor");
         startActivity(intent);
     }
 }
