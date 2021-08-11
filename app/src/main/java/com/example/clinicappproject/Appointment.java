@@ -44,11 +44,11 @@ public class Appointment implements Serializable {
         Date date = new Date(time);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String formattedTime = format.format(date);
-        return "Appointment{" +
-                "doctor = " + doctor.getName() +
-                ", patient=" + patient.getName() +
-                ", time=" + formattedTime +
-                '}';
+        return "Appointment:  \n" +
+                "\n" +
+                "Doctor: " + doctor.getName() + "\n" +
+                "Patient: " + patient.getName() + "\n" +
+                "Time: " + formattedTime;
     }
 
     public String booking_status(){

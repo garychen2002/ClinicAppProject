@@ -4,45 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".DisplayDoctorAppointmentOptions">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="207dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="101dp"
+        android:layout_marginTop="112dp"
         android:gravity="center"
         android:text="@string/myAppointments"
         android:textColor="#243534"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
+        android:layout_marginTop="112dp"
         android:onClick="prevPatientAppointments"
         android:text="@string/prevAppointments"
-        app:backgroundTint="#9EC3B0"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="260dp"
+        android:layout_marginTop="104dp"
         android:onClick="upcomingPatientAppointments"
         android:text="@string/upcomingAppointments"
-        app:backgroundTint="#9EC3B0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

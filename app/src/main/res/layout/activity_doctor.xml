@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".DoctorActivity">
 
     <Button
         android:id="@+id/d_schedule"
         android:layout_width="205dp"
         android:layout_height="63dp"
+        android:layout_marginTop="68dp"
         android:onClick="openSchedule"
         android:text="@string/doctor_schedule"
-        app:backgroundTint="#9EC3B0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Upcoming_Appointment"
-        app:layout_constraintVertical_bias="0.079"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/Name"
         android:layout_width="210dp"
         android:layout_height="64dp"
-        android:layout_marginTop="140dp"
-        android:background="#DCE5EDEC"
+        android:layout_marginTop="52dp"
+        android:background="@null"
         android:gravity="center"
         android:text="@string/d_name"
+        android:textColor="@color/black"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,27 +40,27 @@
         android:id="@+id/Upcoming_Appointment"
         android:layout_width="205dp"
         android:layout_height="63dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginTop="64dp"
         android:onClick="openUpcomingAppointment"
         android:text="@string/d_appointment"
-        app:backgroundTint="#9EC3B0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:backgroundTint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/d_info"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/d_info"
-        android:layout_width="178dp"
-        android:layout_height="61dp"
+        android:layout_width="247dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="sans-serif"
         android:text="@string/d_info"
-        app:layout_constraintBottom_toTopOf="@+id/Upcoming_Appointment"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintTop_toBottomOf="@+id/Name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

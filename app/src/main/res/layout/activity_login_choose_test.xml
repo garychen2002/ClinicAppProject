@@ -41,6 +41,7 @@
         android:layout_marginBottom="76dp"
         android:lineSpacingExtra="8sp"
         android:text="@string/welcome_login"
+        android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/patientButton"
         app:layout_constraintEnd_toEndOf="parent"

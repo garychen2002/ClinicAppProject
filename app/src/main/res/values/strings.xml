@@ -28,7 +28,8 @@
     <string name="myAppointments">My appointments</string>
     <string name="prevAppointments">Previous Appointments</string>
     <string name="upcomingAppointments">Upcoming Appointments</string>
-    <string name="choose_time">Choose Time for Your Appointment</string>
+    <string name="choose_time">Choose Appointment Time</string>
+    <string name="schedule">Schedule for: </string>
 
 
     <string-array name="departments">
@@ -48,7 +49,7 @@
     <string name="booking_status">Booking Status</string>
     <string name="p_info">Patient\'s info</string>
     <string name="previous_d">Previous Doctor</string>
-    <string name="last_message">Booking Succeed</string>
+    <string name="last_message">Booking Successful!</string>
     <string name="booking_time">time</string>
     <string name="doctor_schedule">My Schedule</string>
     <string name="choose_date">Choose Date</string>
