@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class BookingFinalPage extends AppCompatActivity {
@@ -23,5 +24,10 @@ public class BookingFinalPage extends AppCompatActivity {
         appointment = (Appointment) intent.getSerializableExtra("APPOINTMENT");
         TextView tv = (TextView) findViewById(R.id.final_message);
         tv.setText(appointment.toString());
+    }
+
+    public void goHome(View view) {
+        Intent intent = new Intent(this, PatientActivity.class);
+        startActivity(intent);
     }
 }

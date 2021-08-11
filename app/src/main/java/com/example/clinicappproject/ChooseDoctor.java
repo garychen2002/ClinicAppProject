@@ -19,7 +19,7 @@ public class ChooseDoctor extends AppCompatActivity {
     ArrayAdapter<String> doctorAdapter;
     String choice;
     Button ShowTime;
-    //long apppointment_time;
+    //long appointment_time;
     Doctor final_doctor;
     Patient current_patient;
     //Appointment appointment;

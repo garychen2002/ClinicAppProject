@@ -30,6 +30,7 @@
     <string name="upcomingAppointments">Upcoming Appointments</string>
     <string name="choose_time">Choose Appointment Time</string>
     <string name="schedule">Schedule for: </string>
+    <string name="home">Home</string>
 
 
     <string-array name="departments">
