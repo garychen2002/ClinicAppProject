@@ -20,7 +20,7 @@
     <string name="patient_login_button">Patient</string>
     <string name="doctor_login_button">Doctor</string>
     <string name="welcome_login">Are you a:</string>
-    <string name="patient_login_title">Login as patient</string>
+    <string name="patient_login_title">Login as a patient</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="doctor_login_title">Login as doctor</string>
