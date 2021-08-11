@@ -17,9 +17,9 @@
 
     <string name="choose_doctor">Available Doctors</string>
     <string name="book_button">Show Available Time</string>
-    <string name="patient_login_button">Patient</string>
-    <string name="doctor_login_button">Doctor</string>
-    <string name="welcome_login">Are you a:</string>
+    <string name="patient_login_button">Patient Login</string>
+    <string name="doctor_login_button">Doctor Login</string>
+    <string name="welcome_login">Login</string>
     <string name="patient_login_title">Login as a patient</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
