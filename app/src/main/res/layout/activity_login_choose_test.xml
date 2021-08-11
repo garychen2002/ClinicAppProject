@@ -32,14 +32,15 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="241dp"
-        android:layout_height="91dp"
+        android:layout_width="232dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="76dp"
         android:lineSpacingExtra="8sp"
         android:text="@string/welcome_login"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/patientButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
