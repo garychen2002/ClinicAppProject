@@ -23,7 +23,7 @@
     <string name="patient_login_title">Login as a patient</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
-    <string name="doctor_login_title">Login as doctor</string>
+    <string name="doctor_login_title">Login as a doctor</string>
     <string name="login_button">LOGIN</string>
     <string name="myAppointments">My appointments</string>
     <string name="prevAppointments">Previous Appointments</string>
