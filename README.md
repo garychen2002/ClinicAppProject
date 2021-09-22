@@ -11,3 +11,5 @@ Members:
 - Linda Shi
 - Megan Liu
 - Sarvagya Agrawal
+
+NOTE: This project is not to be resubmitted by other students in any future course.
